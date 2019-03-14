@@ -8,3 +8,6 @@ C:\Users\faraz06\Desktop\Semester 6\DBMS\Lab\lab7\LabManagementProject\MiniProje
 C:\Users\faraz06\Desktop\Semester 6\DBMS\Lab\lab7\LabManagementProject\MiniProject\LabManagementProject\obj\Debug\LabManagementProject.csproj.GenerateResource.Cache
 C:\Users\faraz06\Desktop\Semester 6\DBMS\Lab\lab7\LabManagementProject\MiniProject\LabManagementProject\obj\Debug\LabManagementProject.exe
 C:\Users\faraz06\Desktop\Semester 6\DBMS\Lab\lab7\LabManagementProject\MiniProject\LabManagementProject\obj\Debug\LabManagementProject.pdb
+C:\Users\faraz06\Desktop\Semester 6\DBMS\Lab\lab7\LabManagementProject\MiniProject\LabManagementProject\obj\Debug\LabManagementProject.Clo.resources
+C:\Users\faraz06\Desktop\Semester 6\DBMS\Lab\lab7\LabManagementProject\MiniProject\LabManagementProject\obj\Debug\LabManagementProject.Rubric.resources
+C:\Users\faraz06\Desktop\Semester 6\DBMS\Lab\lab7\LabManagementProject\MiniProject\LabManagementProject\obj\Debug\LabManagementProject.Home.resources

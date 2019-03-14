@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace LabManagementProject
 {
@@ -24,7 +25,8 @@ namespace LabManagementProject
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+           
+            ComboBoxFill();
             DisplayData();
 
 
@@ -34,27 +36,41 @@ namespace LabManagementProject
         private void btnaddstudent_Click(object sender, EventArgs e)
         {   
             if (txtfirstname.Text != "" && txtlastname.Text != "" && txtcontact.Text != "" && txtemail.Text != "" &&
-                txtregistration.Text != "" && cmbStatus.Text != "")
+                txtregistration.Text != "" && cmbStatus.Text != "" &&  IsValid())
+                
+                
             {
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into Student(FirstName,LastName,Contact,Email,RegistrationNumber,Status) values(@Fname,@Lname,@contact,@email,@registration,@status)";
-                cmd.Parameters.AddWithValue("@Fname", txtfirstname.Text);
-                cmd.Parameters.AddWithValue("@Lname", txtlastname.Text);
-                cmd.Parameters.AddWithValue("@contact", txtcontact.Text);
-                cmd.Parameters.AddWithValue("@email", txtemail.Text);
+                cmd.CommandText = "SELECT COUNT(*) FROM Student WHERE RegistrationNumber = @registration";
                 cmd.Parameters.AddWithValue("@registration", txtregistration.Text);
-                cmd.Parameters.AddWithValue("@status", StatusValue(cmbStatus.Text));
-                cmd.ExecuteNonQuery();
-                con.Close();
-                DisplayData();
-                MessageBox.Show("Record Inserted Successfully");
-                RemoveData();
+                int records = (int)cmd.ExecuteScalar();
+                if (records == 0)
+                {
+                    cmd.CommandText ="insert into Student(FirstName,LastName,Contact,Email,RegistrationNumber,Status) values(@Fname,@Lname,@contact,@email,@registration,@status)";
+                    cmd.Parameters.AddWithValue("@Fname", txtfirstname.Text);
+                    cmd.Parameters.AddWithValue("@Lname", txtlastname.Text);
+                    cmd.Parameters.AddWithValue("@contact", txtcontact.Text);
+                    cmd.Parameters.AddWithValue("@email", txtemail.Text);
+                  //  cmd.Parameters.AddWithValue("@registration", txtregistration.Text);
+                    cmd.Parameters.AddWithValue("@status", StatusValue(cmbStatus.Text));
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    DisplayData();
+                    MessageBox.Show("Record Inserted Successfully");
+                    RemoveData();
+                }
+                else
+                {
+                    MessageBox.Show("Record Already Exist!");
+                    con.Close();
+                }
+
             }
             else
             {
-                MessageBox.Show("Please Provide Details!");
+                MessageBox.Show("Please Provide Details With Correct Format!");
             }
 
 
@@ -76,14 +92,61 @@ namespace LabManagementProject
             con.Close();
         }
 
+
+        public void ComboBoxFill()
+        {
+            con.Open();
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select Name from Lookup where Category='STUDENT_STATUS'";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            
+           //cmbStatus.ValueMember = "Name";
+            cmbStatus.DisplayMember = "Name";
+            cmbStatus.DataSource = dt;
+            con.Close();
+
+
+
+        }
+
+
+
+
+
+
         public int StatusValue(string s)
         {
-            if (cmbStatus.Text == "Regular")
+            if (cmbStatus.Text == "Active")
             {
-                return 1;
-            }
+           
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select LookupId from Lookup where Name='Active'";
+                cmd.ExecuteNonQuery();
+                return (int)cmd.ExecuteScalar();
+                 
 
-            return 0;
+            }
+            else
+            {
+              
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select LookupId from Lookup where Name='InActive'";
+                cmd.ExecuteNonQuery();
+                return (int)cmd.ExecuteScalar();
+            }
+            
+
+
+
+
+
+
         }
 
 
@@ -107,9 +170,10 @@ namespace LabManagementProject
                 txtfirstname.Text = dgvstudent.Rows[e.RowIndex].Cells[1].Value.ToString();
                 txtlastname.Text = dgvstudent.Rows[e.RowIndex].Cells[2].Value.ToString();
                 txtcontact.Text = dgvstudent.Rows[e.RowIndex].Cells[3].Value.ToString();
-                txtemail.Text = dgvstudent.Rows[e.RowIndex].Cells[3].Value.ToString();
+                txtemail.Text = dgvstudent.Rows[e.RowIndex].Cells[4].Value.ToString();
                 txtregistration.Text = dgvstudent.Rows[e.RowIndex].Cells[5].Value.ToString();
                 cmbStatus.Text = dgvstudent.Rows[e.RowIndex].Cells[6].Value.ToString();
+
             }
         }
 
@@ -161,6 +225,136 @@ namespace LabManagementProject
                 MessageBox.Show("Please Select Record to Delete");
             }
         }
+
+        private void txtemail_TextChanged(object sender, EventArgs e)
+        {
+            string pattren = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
+                             @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
+                             @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
+            if (Regex.IsMatch(txtemail.Text, pattren))
+            {
+                errorProvider3.Clear();
+            }
+            else
+            {
+                 errorProvider3.SetError(this.txtemail, "Enter the Email address in correct format");
+                return;
+            }
+
+        }
+
+        private void txtfirstname_TextChanged(object sender, EventArgs e)
+        {
+            if (Regex.IsMatch(txtfirstname.Text, @"^[A-Z][a-zA-Z]*$"))
+            {
+                errorProvider1.Clear();
+                
+            }
+            else
+            {
+                errorProvider1.SetError(txtfirstname, "Only use alphabets & Use first letter Capital");
+                return;
+            }
+        }
+
+        private void txtlastname_TextChanged(object sender, EventArgs e)
+        {
+            if (Regex.IsMatch(txtlastname.Text, @"^[A-Z][a-zA-Z]*$"))
+            {
+                errorProvider2.Clear();
+                
+            }
+            else
+            {
+                errorProvider2.SetError(txtlastname, "Only use alphabets & Use first letter Capital");
+                return;
+            }
+        }
+
+        private void txtcontact_TextChanged(object sender, EventArgs e)
+        {
+            if (Regex.IsMatch(txtcontact.Text, @"^(\+)?([9]{1}[2]{1})?-? ?(\()?([0]{1})?[1-9]{2,4}(\))?-? ??(\()?[1-9]{4,7}(\))?$"))
+            {
+                errorProvider4.Clear();
+
+            }
+            else
+            {
+                errorProvider4.SetError(txtcontact, "Enter Valid phone Number. Use that Format +92 321 7469854 | 923217469857 | 041 2680226");
+                return;
+            }
+
+        }
+
+        private void txtregistration_TextChanged(object sender, EventArgs e)
+        {
+            
+            if (Regex.IsMatch(txtregistration.Text, @"^(\d{4}-[A-Z|a-z]{2}-\d{1,4})?$"))
+            {
+                errorProvider5.Clear();
+
+            }
+            else
+            {
+                errorProvider5.SetError(txtregistration, "Enter Valid Registration Number. Use that Format 2016-CS-103");
+                return;
+                
+            }
+
+            
+
+
+        }
+
+
+
+        public bool IsValid()
+        {
+            foreach (Control c in this.Controls)
+            {
+                if (errorProvider1.GetError(c).Length > 0)
+                {
+                    return false;
+                }
+                else if (errorProvider2.GetError(c).Length > 0)
+                {
+                    return false;
+                }
+                else if (errorProvider3.GetError(c).Length > 0)
+                {
+                    return false;
+                }
+                else if (errorProvider4.GetError(c).Length > 0)
+                {
+                    return false;
+                }
+                else if (errorProvider5.GetError(c).Length > 0)
+                {
+                    return false;
+                }
+
+            }
+
+            return true;
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Clo c = new Clo();
+            c.Show();
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Home h = new Home();
+            h.Show();
+        }
     }
+
+
+
+    
 }
 
