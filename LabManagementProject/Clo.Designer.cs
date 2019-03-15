@@ -69,7 +69,7 @@
             this.txtcloname.Margin = new System.Windows.Forms.Padding(4);
             this.txtcloname.Name = "txtcloname";
             this.txtcloname.Size = new System.Drawing.Size(244, 22);
-            this.txtcloname.TabIndex = 1;
+            this.txtcloname.TabIndex = 16;
             // 
             // dgvclo
             // 
@@ -88,7 +88,7 @@
             this.dgvclo.Name = "dgvclo";
             this.dgvclo.ReadOnly = true;
             this.dgvclo.Size = new System.Drawing.Size(384, 131);
-            this.dgvclo.TabIndex = 2;
+            this.dgvclo.TabIndex = 18;
             this.dgvclo.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvclo_RowHeaderMouseClick);
             // 
             // idDataGridViewTextBoxColumn
@@ -141,7 +141,7 @@
             this.btnaddclo.Margin = new System.Windows.Forms.Padding(4);
             this.btnaddclo.Name = "btnaddclo";
             this.btnaddclo.Size = new System.Drawing.Size(100, 28);
-            this.btnaddclo.TabIndex = 3;
+            this.btnaddclo.TabIndex = 17;
             this.btnaddclo.Text = "Add";
             this.btnaddclo.UseVisualStyleBackColor = true;
             this.btnaddclo.Click += new System.EventHandler(this.btnaddclo_Click);
@@ -153,7 +153,7 @@
             this.btnupdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnupdate.Name = "btnupdate";
             this.btnupdate.Size = new System.Drawing.Size(100, 28);
-            this.btnupdate.TabIndex = 4;
+            this.btnupdate.TabIndex = 20;
             this.btnupdate.Text = "Update";
             this.btnupdate.UseVisualStyleBackColor = true;
             this.btnupdate.Click += new System.EventHandler(this.btnupdate_Click);
@@ -165,7 +165,7 @@
             this.btndelete.Margin = new System.Windows.Forms.Padding(4);
             this.btndelete.Name = "btndelete";
             this.btndelete.Size = new System.Drawing.Size(100, 28);
-            this.btndelete.TabIndex = 5;
+            this.btndelete.TabIndex = 19;
             this.btndelete.Text = "Delete";
             this.btndelete.UseVisualStyleBackColor = true;
             this.btndelete.Click += new System.EventHandler(this.btndelete_Click);
@@ -181,7 +181,7 @@
             this.linkLabel1.Location = new System.Drawing.Point(61, 368);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(101, 15);
-            this.linkLabel1.TabIndex = 6;
+            this.linkLabel1.TabIndex = 21;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "<---BackToHome";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
@@ -193,7 +193,7 @@
             this.linkLabel2.Location = new System.Drawing.Point(341, 368);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(125, 15);
-            this.linkLabel2.TabIndex = 7;
+            this.linkLabel2.TabIndex = 22;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "GoToManageStudent";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
@@ -205,7 +205,7 @@
             this.linkLabel3.Location = new System.Drawing.Point(640, 368);
             this.linkLabel3.Name = "linkLabel3";
             this.linkLabel3.Size = new System.Drawing.Size(98, 15);
-            this.linkLabel3.TabIndex = 8;
+            this.linkLabel3.TabIndex = 23;
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "GoToRubrics--->";
             this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);

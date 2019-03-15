@@ -29,24 +29,27 @@ namespace LabManagementProject
 
         private void lblmanagestudent_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
+            
             FrmStudent s = new FrmStudent();
             s.Show();
-            
+            this.Hide();
+
         }
 
         private void lblmanageclos_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
+          
             Clo s = new Clo();
             s.Show();
+            this.Hide();
         }
 
         private void lblmanagerubrics_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
+           
             Rubric s = new Rubric();
             s.Show();
+            this.Hide();
         }
     }
 }

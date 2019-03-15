@@ -14,6 +14,9 @@ namespace LabManagementProject
 {
     public partial class FrmStudent : Form
     {
+        /// <summary>
+        /// Con is variable used for the connection of database with this project.
+        /// </summary>
         SqlConnection con = new SqlConnection(@"Data Source = FARAZ; Initial Catalog = ProjectB; Integrated Security = True");
         private int Id = 0;
 
@@ -22,7 +25,10 @@ namespace LabManagementProject
             InitializeComponent();
             
         }
-
+        /// <summary>
+        /// this is form load function which dispaly data that is already present in dataGridView and fill the combox from the values of database.
+        /// </summary>
+        
         private void Form1_Load(object sender, EventArgs e)
         {
            
@@ -32,6 +38,11 @@ namespace LabManagementProject
 
 
         }
+        /// <summary>
+        /// click event of add button, First Check valid values then add them to dataGridView and display the newly added data.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void btnaddstudent_Click(object sender, EventArgs e)
         {   
@@ -53,7 +64,7 @@ namespace LabManagementProject
                     cmd.Parameters.AddWithValue("@Lname", txtlastname.Text);
                     cmd.Parameters.AddWithValue("@contact", txtcontact.Text);
                     cmd.Parameters.AddWithValue("@email", txtemail.Text);
-                  //  cmd.Parameters.AddWithValue("@registration", txtregistration.Text);
+                  //cmd.Parameters.AddWithValue("@registration", txtregistration.Text);
                     cmd.Parameters.AddWithValue("@status", StatusValue(cmbStatus.Text));
                     cmd.ExecuteNonQuery();
                     con.Close();
@@ -75,8 +86,9 @@ namespace LabManagementProject
 
 
         }
-
-
+        /// <summary>
+        /// this function is used to display the data in the dataGridView
+        /// </summary>
         public void DisplayData()
         {
             con.Open();
@@ -92,7 +104,9 @@ namespace LabManagementProject
             con.Close();
         }
 
-
+        /// <summary>
+        /// this function is used to fill the data in the combobox.
+        /// </summary>
         public void ComboBoxFill()
         {
             con.Open();
@@ -103,20 +117,15 @@ namespace LabManagementProject
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
-            
-           //cmbStatus.ValueMember = "Name";
             cmbStatus.DisplayMember = "Name";
             cmbStatus.DataSource = dt;
             con.Close();
-
-
-
         }
-
-
-
-
-
+        /// <summary>
+        /// this function is used to convert the string value into int value.
+        /// </summary>
+        /// <param name="s">string Argument</param>
+        /// <returns>convert the string into int</returns>
 
         public int StatusValue(string s)
         {
@@ -140,16 +149,11 @@ namespace LabManagementProject
                 cmd.ExecuteNonQuery();
                 return (int)cmd.ExecuteScalar();
             }
-            
-
-
-
-
-
-
         }
 
-
+        /// <summary>
+        /// this function is used to remove data from textboxes.
+        /// </summary>
 
 
         private void RemoveData()
@@ -162,6 +166,11 @@ namespace LabManagementProject
             cmbStatus.Text = "";
             Id = 0;
         }
+        /// <summary>
+        /// that function fill the textboxes with the data that is selected for updation or deletion purpose.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void dgvstudent_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -176,34 +185,58 @@ namespace LabManagementProject
 
             }
         }
+        /// <summary>
+        /// Click event of the update button in which updated data is inserted into the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
-            if (txtfirstname.Text != "" && txtlastname.Text != "" && txtcontact.Text != "" && txtemail.Text != "" &&
+            if (IsValid() && txtfirstname.Text != "" && txtlastname.Text != "" && txtcontact.Text != "" && txtemail.Text != "" &&
                 txtregistration.Text != "" && cmbStatus.Text != "")  
             {
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "update Student set FirstName=@Fname,LastName=@Lname, Contact=@contact,Email=@email,RegistrationNumber=@registration,Status=@status where Id=@id";
-                cmd.Parameters.AddWithValue("@id", Id);
-                cmd.Parameters.AddWithValue("@Fname", txtfirstname.Text);
-                cmd.Parameters.AddWithValue("@Lname", txtlastname.Text);
-                cmd.Parameters.AddWithValue("@contact", txtcontact.Text);
-                cmd.Parameters.AddWithValue("@email", txtemail.Text);
+                cmd.CommandText = "SELECT COUNT(*) FROM Student WHERE RegistrationNumber = @registration";
                 cmd.Parameters.AddWithValue("@registration", txtregistration.Text);
-                cmd.Parameters.AddWithValue("@status", StatusValue(cmbStatus.Text));
-                cmd.ExecuteNonQuery();
-                con.Close();
-                DisplayData();
-                MessageBox.Show("Record Updated Successfully");
-                RemoveData();
+               
+                int records = (int)cmd.ExecuteScalar();
+                if (records == 0)
+                {
+                    cmd.CommandText =
+                        "update Student set FirstName=@Fname,LastName=@Lname, Contact=@contact,Email=@email,RegistrationNumber=@registration,Status=@status where Id=@id";
+                    cmd.Parameters.AddWithValue("@id", Id);
+                    cmd.Parameters.AddWithValue("@Fname", txtfirstname.Text);
+                    cmd.Parameters.AddWithValue("@Lname", txtlastname.Text);
+                    cmd.Parameters.AddWithValue("@contact", txtcontact.Text);
+                    cmd.Parameters.AddWithValue("@email", txtemail.Text);
+                    //  cmd.Parameters.AddWithValue("@registration", txtregistration.Text);
+                    cmd.Parameters.AddWithValue("@status", StatusValue(cmbStatus.Text));
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    DisplayData();
+                    MessageBox.Show("Record Updated Successfully");
+                    RemoveData();
+                }
+                else
+                {
+                    MessageBox.Show("Record Already Exist!");
+                    con.Close();
+                }
             }
             else
             {
                 MessageBox.Show("Please Select Record to Update");
             }
         }
+
+        /// <summary>
+        /// click event of delete button that is used to delete the selected row from the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void btndelete_Click(object sender, EventArgs e)
         {
@@ -226,6 +259,12 @@ namespace LabManagementProject
             }
         }
 
+        /// <summary>
+        /// regular expression for the validation of Email.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void txtemail_TextChanged(object sender, EventArgs e)
         {
             string pattren = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
@@ -242,6 +281,11 @@ namespace LabManagementProject
             }
 
         }
+        /// <summary>
+        /// regular expression for the validation of first name.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void txtfirstname_TextChanged(object sender, EventArgs e)
         {
@@ -256,6 +300,11 @@ namespace LabManagementProject
                 return;
             }
         }
+        /// <summary>
+        /// regular expression for the validation of last name.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void txtlastname_TextChanged(object sender, EventArgs e)
         {
@@ -270,6 +319,11 @@ namespace LabManagementProject
                 return;
             }
         }
+        /// <summary>
+        /// regular expression for the validation of contact number.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void txtcontact_TextChanged(object sender, EventArgs e)
         {
@@ -285,6 +339,11 @@ namespace LabManagementProject
             }
 
         }
+        /// <summary>
+        /// regular expression for the validation of registration number.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void txtregistration_TextChanged(object sender, EventArgs e)
         {
@@ -305,7 +364,10 @@ namespace LabManagementProject
 
 
         }
-
+        /// <summary>
+        /// this fuction check that if any error provider indicates error than it return false and data can't inserted in data base. 
+        /// </summary>
+        /// <returns>true or false value depend upon whether data is valid </returns>
 
 
         public bool IsValid()
@@ -337,19 +399,31 @@ namespace LabManagementProject
 
             return true;
         }
+        /// <summary>
+        /// link label for the clo form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
+            
             Clo c = new Clo();
             c.Show();
+            this.Hide();
         }
+        /// <summary>
+        /// link label for the home page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
+            
             Home h = new Home();
             h.Show();
+            this.Hide();
         }
     }
 

@@ -64,7 +64,7 @@
             this.txtrubricid.Margin = new System.Windows.Forms.Padding(4);
             this.txtrubricid.Name = "txtrubricid";
             this.txtrubricid.Size = new System.Drawing.Size(132, 22);
-            this.txtrubricid.TabIndex = 0;
+            this.txtrubricid.TabIndex = 24;
             // 
             // lblrubricid
             // 
@@ -102,7 +102,7 @@
             this.rchclodetails.Margin = new System.Windows.Forms.Padding(4);
             this.rchclodetails.Name = "rchclodetails";
             this.rchclodetails.Size = new System.Drawing.Size(251, 73);
-            this.rchclodetails.TabIndex = 5;
+            this.rchclodetails.TabIndex = 25;
             this.rchclodetails.Text = "";
             // 
             // cmbcloid
@@ -115,7 +115,7 @@
             this.cmbcloid.Margin = new System.Windows.Forms.Padding(4);
             this.cmbcloid.Name = "cmbcloid";
             this.cmbcloid.Size = new System.Drawing.Size(160, 24);
-            this.cmbcloid.TabIndex = 6;
+            this.cmbcloid.TabIndex = 26;
             this.cmbcloid.ValueMember = "Id";
             // 
             // cloBindingSource
@@ -142,8 +142,8 @@
             this.dgvrubric.Margin = new System.Windows.Forms.Padding(4);
             this.dgvrubric.Name = "dgvrubric";
             this.dgvrubric.ReadOnly = true;
-            this.dgvrubric.Size = new System.Drawing.Size(353, 134);
-            this.dgvrubric.TabIndex = 7;
+            this.dgvrubric.Size = new System.Drawing.Size(355, 150);
+            this.dgvrubric.TabIndex = 28;
             this.dgvrubric.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvrubric_RowHeaderMouseClick);
             // 
             // idDataGridViewTextBoxColumn
@@ -190,7 +190,7 @@
             this.btnaddrubric.Margin = new System.Windows.Forms.Padding(4);
             this.btnaddrubric.Name = "btnaddrubric";
             this.btnaddrubric.Size = new System.Drawing.Size(100, 28);
-            this.btnaddrubric.TabIndex = 8;
+            this.btnaddrubric.TabIndex = 27;
             this.btnaddrubric.Text = "Add";
             this.btnaddrubric.UseVisualStyleBackColor = true;
             this.btnaddrubric.Click += new System.EventHandler(this.btnaddrubric_Click);
@@ -201,7 +201,7 @@
             this.btnupdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnupdate.Name = "btnupdate";
             this.btnupdate.Size = new System.Drawing.Size(100, 28);
-            this.btnupdate.TabIndex = 9;
+            this.btnupdate.TabIndex = 29;
             this.btnupdate.Text = "Update";
             this.btnupdate.UseVisualStyleBackColor = true;
             this.btnupdate.Click += new System.EventHandler(this.btnupdate_Click);
@@ -216,7 +216,7 @@
             this.btndelete.Margin = new System.Windows.Forms.Padding(4);
             this.btndelete.Name = "btndelete";
             this.btndelete.Size = new System.Drawing.Size(100, 28);
-            this.btndelete.TabIndex = 10;
+            this.btndelete.TabIndex = 30;
             this.btndelete.Text = "Delete";
             this.btndelete.UseVisualStyleBackColor = true;
             this.btndelete.Click += new System.EventHandler(this.btndelete_Click);
@@ -228,7 +228,7 @@
             this.linkLabel1.Location = new System.Drawing.Point(149, 418);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(101, 15);
-            this.linkLabel1.TabIndex = 11;
+            this.linkLabel1.TabIndex = 31;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "<---BackToHome";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
@@ -240,7 +240,7 @@
             this.linkLabel2.Location = new System.Drawing.Point(465, 418);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(95, 15);
-            this.linkLabel2.TabIndex = 12;
+            this.linkLabel2.TabIndex = 32;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "ManageStudent";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
@@ -252,7 +252,7 @@
             this.linkLabel3.Location = new System.Drawing.Point(782, 418);
             this.linkLabel3.Name = "linkLabel3";
             this.linkLabel3.Size = new System.Drawing.Size(71, 15);
-            this.linkLabel3.TabIndex = 13;
+            this.linkLabel3.TabIndex = 33;
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "ManageClo";
             this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);

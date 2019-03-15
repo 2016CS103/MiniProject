@@ -89,7 +89,7 @@
             this.btnaddstudent.Margin = new System.Windows.Forms.Padding(4);
             this.btnaddstudent.Name = "btnaddstudent";
             this.btnaddstudent.Size = new System.Drawing.Size(100, 28);
-            this.btnaddstudent.TabIndex = 1;
+            this.btnaddstudent.TabIndex = 10;
             this.btnaddstudent.Text = "Add Student";
             this.btnaddstudent.UseVisualStyleBackColor = true;
             this.btnaddstudent.Click += new System.EventHandler(this.btnaddstudent_Click);
@@ -156,7 +156,7 @@
             this.txtfirstname.Margin = new System.Windows.Forms.Padding(4);
             this.txtfirstname.Name = "txtfirstname";
             this.txtfirstname.Size = new System.Drawing.Size(132, 20);
-            this.txtfirstname.TabIndex = 8;
+            this.txtfirstname.TabIndex = 4;
             this.txtfirstname.TextChanged += new System.EventHandler(this.txtfirstname_TextChanged);
             // 
             // txtlastname
@@ -166,7 +166,7 @@
             this.txtlastname.Margin = new System.Windows.Forms.Padding(4);
             this.txtlastname.Name = "txtlastname";
             this.txtlastname.Size = new System.Drawing.Size(132, 20);
-            this.txtlastname.TabIndex = 9;
+            this.txtlastname.TabIndex = 5;
             this.txtlastname.TextChanged += new System.EventHandler(this.txtlastname_TextChanged);
             // 
             // txtcontact
@@ -176,7 +176,7 @@
             this.txtcontact.Margin = new System.Windows.Forms.Padding(4);
             this.txtcontact.Name = "txtcontact";
             this.txtcontact.Size = new System.Drawing.Size(132, 20);
-            this.txtcontact.TabIndex = 10;
+            this.txtcontact.TabIndex = 7;
             this.txtcontact.TextChanged += new System.EventHandler(this.txtcontact_TextChanged);
             // 
             // txtemail
@@ -186,7 +186,7 @@
             this.txtemail.Margin = new System.Windows.Forms.Padding(4);
             this.txtemail.Name = "txtemail";
             this.txtemail.Size = new System.Drawing.Size(132, 20);
-            this.txtemail.TabIndex = 11;
+            this.txtemail.TabIndex = 8;
             this.txtemail.TextChanged += new System.EventHandler(this.txtemail_TextChanged);
             this.txtemail.Leave += new System.EventHandler(this.txtemail_TextChanged);
             // 
@@ -197,7 +197,7 @@
             this.txtregistration.Margin = new System.Windows.Forms.Padding(4);
             this.txtregistration.Name = "txtregistration";
             this.txtregistration.Size = new System.Drawing.Size(132, 20);
-            this.txtregistration.TabIndex = 12;
+            this.txtregistration.TabIndex = 6;
             this.txtregistration.TextChanged += new System.EventHandler(this.txtregistration_TextChanged);
             // 
             // cmbStatus
@@ -209,7 +209,7 @@
             this.cmbStatus.Margin = new System.Windows.Forms.Padding(4);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(132, 21);
-            this.cmbStatus.TabIndex = 13;
+            this.cmbStatus.TabIndex = 9;
             // 
             // dgvstudent
             // 
@@ -232,7 +232,7 @@
             this.dgvstudent.Name = "dgvstudent";
             this.dgvstudent.ReadOnly = true;
             this.dgvstudent.Size = new System.Drawing.Size(734, 190);
-            this.dgvstudent.TabIndex = 14;
+            this.dgvstudent.TabIndex = 11;
             this.dgvstudent.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvstudent_RowHeaderMouseClick);
             // 
             // idDataGridViewTextBoxColumn
@@ -302,7 +302,7 @@
             this.btnupdate.Location = new System.Drawing.Point(565, 443);
             this.btnupdate.Name = "btnupdate";
             this.btnupdate.Size = new System.Drawing.Size(67, 23);
-            this.btnupdate.TabIndex = 15;
+            this.btnupdate.TabIndex = 13;
             this.btnupdate.Text = "Update";
             this.btnupdate.UseVisualStyleBackColor = true;
             this.btnupdate.Click += new System.EventHandler(this.btnupdate_Click);
@@ -313,7 +313,7 @@
             this.btndelete.Location = new System.Drawing.Point(183, 443);
             this.btndelete.Name = "btndelete";
             this.btndelete.Size = new System.Drawing.Size(67, 23);
-            this.btndelete.TabIndex = 16;
+            this.btndelete.TabIndex = 12;
             this.btndelete.Text = "Delete";
             this.btndelete.UseVisualStyleBackColor = true;
             this.btndelete.Click += new System.EventHandler(this.btndelete_Click);
@@ -345,7 +345,7 @@
             this.linkLabel1.Location = new System.Drawing.Point(562, 534);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(74, 15);
-            this.linkLabel1.TabIndex = 17;
+            this.linkLabel1.TabIndex = 15;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "GoToClo--->";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
@@ -357,7 +357,7 @@
             this.linkLabel2.Location = new System.Drawing.Point(180, 534);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(94, 15);
-            this.linkLabel2.TabIndex = 18;
+            this.linkLabel2.TabIndex = 14;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "<---BackTHome";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);

@@ -14,6 +14,9 @@ namespace LabManagementProject
 {
     public partial class Rubric : Form
     {
+        /// <summary>
+        /// Con is variable used for the connection of database with this project.
+        /// </summary>
         SqlConnection con =
             new SqlConnection(@"Data Source = FARAZ; Initial Catalog = ProjectB; Integrated Security = True");
 
@@ -24,6 +27,10 @@ namespace LabManagementProject
             InitializeComponent();
         }
 
+        /// <summary>
+        /// this is form load function which dispaly data that is already present in dataGridView and fill the combox from the values of database.
+        /// </summary>
+
         private void Rubric_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'projectBDataSet3.Clo' table. You can move, or remove it, as needed.
@@ -32,6 +39,13 @@ namespace LabManagementProject
             this.rubricTableAdapter.Fill(this.projectBDataSet2.Rubric);
 
         }
+
+        
+        /// <summary>
+        /// click event of add button, First Check valid values then add them to dataGridView and display the newly added data.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void btnaddrubric_Click(object sender, EventArgs e)
         {
@@ -55,6 +69,9 @@ namespace LabManagementProject
                 MessageBox.Show("Please Fill the text fields!");
             }
         }
+        /// <summary>
+        /// this function is used to display the data in the dataGridView
+        /// </summary>
 
         public void DisplayData()
         {
@@ -70,6 +87,9 @@ namespace LabManagementProject
 
             con.Close();
         }
+        /// <summary>
+        /// this function is used to remove data from textboxes.
+        /// </summary>
         private void RemoveData()
         {
             txtrubricid.Text = "";
@@ -77,6 +97,11 @@ namespace LabManagementProject
             cmbcloid.Text = "";
 
         }
+        /// <summary>
+        /// that function fill the textboxes with the data that is selected for updation or deletion purpose.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void dgvrubric_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -89,6 +114,11 @@ namespace LabManagementProject
 
             btnaddrubric.Hide();
         }
+        /// <summary>
+        /// Click event of the update button in which updated data is inserted into the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
@@ -113,7 +143,11 @@ namespace LabManagementProject
                 MessageBox.Show("Please Select Record to Update");
             }
         }
-
+        /// <summary>
+        /// click event of delete button that is used to delete the selected row from the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btndelete_Click(object sender, EventArgs e)
         {
             if (txtrubricid.Text != "" && rchclodetails.Text != "" && cmbcloid.Text != "")
@@ -135,28 +169,40 @@ namespace LabManagementProject
                 MessageBox.Show("Please Select Record to Delete");
             }
         }
-
+        /// <summary>
+        /// link label for clo form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
             Clo c = new Clo();
             c.Show();
+            this.Hide();
         }
-
+        /// <summary>
+        /// link label for student form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
             FrmStudent s = new FrmStudent();
             s.Show();
+            this.Hide();
 
 
         }
-
+        /// <summary>
+        /// link label for the home.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
             Home h = new Home();
             h.Show();
+            this.Hide();
         }
     }
 

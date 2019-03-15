@@ -13,12 +13,18 @@ namespace LabManagementProject
 {
     public partial class Clo : Form
     {
+        /// <summary>
+        /// Con is variable used for the connection of database with this project.
+        /// </summary>
         SqlConnection con = new SqlConnection(@"Data Source = FARAZ; Initial Catalog = ProjectB; Integrated Security = True");
         private int Id = 0;
         public Clo()
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// this is form load function which dispaly data that is already present in dataGridView and fill the combox from the values of database.
+        /// </summary>
 
         private void Clo_Load(object sender, EventArgs e)
         {
@@ -27,6 +33,9 @@ namespace LabManagementProject
             this.cloTableAdapter.Fill(this.projectBDataSet.Clo);
 
         }
+        /// <summary>
+        /// click event of add button, First Check valid values then add them to dataGridView and display the newly added data.
+        /// </summary>
 
         private void btnaddclo_Click(object sender, EventArgs e)
         {
@@ -50,6 +59,9 @@ namespace LabManagementProject
                 MessageBox.Show("Please Enter Name of Clo With Correct Format!");
             }
         }
+        /// <summary>
+        /// this function is used to display the data in the dataGridView
+        /// </summary>
         public void DisplayData()
         {
             con.Open();
@@ -64,13 +76,20 @@ namespace LabManagementProject
 
             con.Close();
         }
+        /// <summary>
+        /// this function is used to remove data from textboxes.
+        /// </summary>
         private void RemoveData()
         {
             txtcloname.Text = "";
             
         }
+        /// <summary>
+        /// that function fill the textboxes with the data that is selected for updation or deletion purpose.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
-        
 
         private void dgvclo_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -82,7 +101,11 @@ namespace LabManagementProject
             }
 
         }
-
+        /// <summary>
+        /// Click event of the update button in which updated data is inserted into the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnupdate_Click(object sender, EventArgs e)
         {
             if (txtcloname.Text != "")
@@ -106,7 +129,11 @@ namespace LabManagementProject
                 MessageBox.Show("Please Select Record to Update");
             }
         }
-
+        /// <summary>
+        /// click event of delete button that is used to delete the selected row from the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btndelete_Click(object sender, EventArgs e)
         {
             if (Id != 0 && txtcloname.Text != "")
@@ -132,26 +159,39 @@ namespace LabManagementProject
                 btnaddclo.Show();
             }
         }
-
+        /// <summary>
+        /// link label for Rubric form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
             Rubric r = new Rubric();
             r.Show();
+            this.Hide();
         }
-
+        /// <summary>
+        /// link label for Student form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
             FrmStudent s = new FrmStudent();
             s.Show();
+            this.Hide();
         }
+        /// <summary>
+        /// link label for home.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
             Home h = new Home();
             h.Show();
+            this.Hide();
         }
     }
 }
