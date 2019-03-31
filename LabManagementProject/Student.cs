@@ -94,7 +94,7 @@ namespace LabManagementProject
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from student";
+            cmd.CommandText = "select * from student ";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -175,13 +175,21 @@ namespace LabManagementProject
         private void dgvstudent_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             {
-                Id = Convert.ToInt32(dgvstudent.Rows[e.RowIndex].Cells[0].Value.ToString());
-                txtfirstname.Text = dgvstudent.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtlastname.Text = dgvstudent.Rows[e.RowIndex].Cells[2].Value.ToString();
-                txtcontact.Text = dgvstudent.Rows[e.RowIndex].Cells[3].Value.ToString();
-                txtemail.Text = dgvstudent.Rows[e.RowIndex].Cells[4].Value.ToString();
-                txtregistration.Text = dgvstudent.Rows[e.RowIndex].Cells[5].Value.ToString();
-                cmbStatus.Text = dgvstudent.Rows[e.RowIndex].Cells[6].Value.ToString();
+                
+                
+                txtfirstname.Text = dgvstudent.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtlastname.Text = dgvstudent.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtcontact.Text = dgvstudent.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtemail.Text = dgvstudent.Rows[e.RowIndex].Cells[3].Value.ToString();
+                txtregistration.Text = dgvstudent.Rows[e.RowIndex].Cells[4].Value.ToString();
+                cmbStatus.Text = dgvstudent.Rows[e.RowIndex].Cells[5].Value.ToString();
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select Id from Student where RegistrationNumber ='"+ txtregistration.Text +"' ";
+                cmd.ExecuteNonQuery();
+                Id = Convert.ToInt32(cmd.ExecuteScalar());
+                con.Close();
 
             }
         }
@@ -199,32 +207,20 @@ namespace LabManagementProject
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT COUNT(*) FROM Student WHERE RegistrationNumber = @registration";
+                cmd.CommandText ="update Student set FirstName=@Fname,LastName=@Lname, Contact=@contact,Email=@email,RegistrationNumber=@registration,Status=@status where Id=@id";
+                cmd.Parameters.AddWithValue("@id", Id);
+                cmd.Parameters.AddWithValue("@Fname", txtfirstname.Text);
+                cmd.Parameters.AddWithValue("@Lname", txtlastname.Text);
+                cmd.Parameters.AddWithValue("@contact", txtcontact.Text);
+                cmd.Parameters.AddWithValue("@email", txtemail.Text);
                 cmd.Parameters.AddWithValue("@registration", txtregistration.Text);
-               
-                int records = (int)cmd.ExecuteScalar();
-                if (records == 0)
-                {
-                    cmd.CommandText =
-                        "update Student set FirstName=@Fname,LastName=@Lname, Contact=@contact,Email=@email,RegistrationNumber=@registration,Status=@status where Id=@id";
-                    cmd.Parameters.AddWithValue("@id", Id);
-                    cmd.Parameters.AddWithValue("@Fname", txtfirstname.Text);
-                    cmd.Parameters.AddWithValue("@Lname", txtlastname.Text);
-                    cmd.Parameters.AddWithValue("@contact", txtcontact.Text);
-                    cmd.Parameters.AddWithValue("@email", txtemail.Text);
-                    //  cmd.Parameters.AddWithValue("@registration", txtregistration.Text);
-                    cmd.Parameters.AddWithValue("@status", StatusValue(cmbStatus.Text));
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    DisplayData();
-                    MessageBox.Show("Record Updated Successfully");
-                    RemoveData();
-                }
-                else
-                {
-                    MessageBox.Show("Record Already Exist!");
-                    con.Close();
-                }
+                cmd.Parameters.AddWithValue("@status", StatusValue(cmbStatus.Text));
+                cmd.ExecuteNonQuery();
+                con.Close();
+                DisplayData();
+                MessageBox.Show("Record Updated Successfully");
+                RemoveData();
+             
             }
             else
             {

@@ -28,9 +28,10 @@ namespace LabManagementProject
 
         private void Clo_Load(object sender, EventArgs e)
         {
-            
-            // TODO: This line of code loads data into the 'projectBDataSet.Clo' table. You can move, or remove it, as needed.
-            this.cloTableAdapter.Fill(this.projectBDataSet.Clo);
+            // TODO: This line of code loads data into the 'projectBDataSet5.Clo' table. You can move, or remove it, as needed.
+            this.cloTableAdapter1.Fill(this.projectBDataSet5.Clo);
+
+           
 
         }
         /// <summary>
@@ -56,7 +57,7 @@ namespace LabManagementProject
             }
             else
             {
-                MessageBox.Show("Please Enter Name of Clo With Correct Format!");
+                MessageBox.Show("Please Enter Name of Clo!");
             }
         }
         /// <summary>
@@ -94,8 +95,14 @@ namespace LabManagementProject
         private void dgvclo_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             {
-                Id = Convert.ToInt32(dgvclo.Rows[e.RowIndex].Cells[0].Value.ToString());
-                txtcloname.Text = dgvclo.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtcloname.Text = dgvclo.Rows[e.RowIndex].Cells[0].Value.ToString();
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select Id from Clo where Name ='" + txtcloname.Text + "' ";
+                cmd.ExecuteNonQuery();
+                Id = Convert.ToInt32(cmd.ExecuteScalar());
+                con.Close();
                 btnaddclo.Hide();
                 
             }

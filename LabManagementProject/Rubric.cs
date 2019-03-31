@@ -33,6 +33,8 @@ namespace LabManagementProject
 
         private void Rubric_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'projectBDataSet6.Clo' table. You can move, or remove it, as needed.
+            this.cloTableAdapter1.Fill(this.projectBDataSet6.Clo);
             // TODO: This line of code loads data into the 'projectBDataSet3.Clo' table. You can move, or remove it, as needed.
             this.cloTableAdapter.Fill(this.projectBDataSet3.Clo);
             // TODO: This line of code loads data into the 'projectBDataSet2.Rubric' table. You can move, or remove it, as needed.
@@ -53,11 +55,14 @@ namespace LabManagementProject
             {
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
+                SqlCommand query = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
+                query.CommandType = CommandType.Text;
                 cmd.CommandText = "insert into Rubric(Id, Details, CloId) values(@Id, @details, @cloid) ";
                 cmd.Parameters.AddWithValue("@Id", txtrubricid.Text);
                 cmd.Parameters.AddWithValue("@details", rchclodetails.Text);
-                cmd.Parameters.AddWithValue("@cloid", cmbcloid.Text);
+                query.CommandText = "Select Id from Clo where Name = '" + cmbcloid.Text + "' ";
+                cmd.Parameters.AddWithValue("@cloid", (int)query.ExecuteScalar());
                 cmd.ExecuteNonQuery();
                 con.Close();
                 DisplayData();
@@ -108,7 +113,12 @@ namespace LabManagementProject
             Id = Convert.ToInt32(dgvrubric.Rows[e.RowIndex].Cells[0].Value.ToString());
             txtrubricid.Text = dgvrubric.Rows[e.RowIndex].Cells[0].Value.ToString();
             rchclodetails.Text = dgvrubric.Rows[e.RowIndex].Cells[1].Value.ToString();
-            cmbcloid.Text = dgvrubric.Rows[e.RowIndex].Cells[2].Value.ToString();
+            con.Open();
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select Name from Clo where Id = '"+ dgvrubric.Rows[e.RowIndex].Cells[2].Value.ToString() + "' ";
+            cmbcloid.Text = cmd.ExecuteScalar().ToString();
+            con.Close();
 
 
 
@@ -127,10 +137,14 @@ namespace LabManagementProject
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
+                SqlCommand query = con.CreateCommand();
+                query.CommandType = CommandType.Text;
                 cmd.CommandText = "update Rubric set Id = @id, Details = @details, CloId = @cloid where Id=@id ";
                 cmd.Parameters.AddWithValue("@id", txtrubricid.Text);
                 cmd.Parameters.AddWithValue("@details", rchclodetails.Text);
-                cmd.Parameters.AddWithValue("@cloid", cmbcloid.Text);
+                query.CommandText = "Select Id from Clo where Name = '" + cmbcloid.Text + "' ";
+                cmd.Parameters.AddWithValue("@cloid", (int)query.ExecuteScalar());
+                //  cmd.Parameters.AddWithValue("@cloid", cmbcloid.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
                 DisplayData();

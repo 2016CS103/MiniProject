@@ -32,7 +32,6 @@
             this.lblcloname = new System.Windows.Forms.Label();
             this.txtcloname = new System.Windows.Forms.TextBox();
             this.dgvclo = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateCreatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateUpdatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,9 +45,14 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.projectBDataSet5 = new LabManagementProject.ProjectBDataSet5();
+            this.cloBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.cloTableAdapter1 = new LabManagementProject.ProjectBDataSet5TableAdapters.CloTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvclo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblcloname
@@ -78,11 +82,10 @@
             this.dgvclo.AutoGenerateColumns = false;
             this.dgvclo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvclo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
             this.dateCreatedDataGridViewTextBoxColumn,
             this.dateUpdatedDataGridViewTextBoxColumn});
-            this.dgvclo.DataSource = this.cloBindingSource;
+            this.dgvclo.DataSource = this.cloBindingSource1;
             this.dgvclo.Location = new System.Drawing.Point(344, 61);
             this.dgvclo.Margin = new System.Windows.Forms.Padding(4);
             this.dgvclo.Name = "dgvclo";
@@ -90,14 +93,6 @@
             this.dgvclo.Size = new System.Drawing.Size(384, 131);
             this.dgvclo.TabIndex = 18;
             this.dgvclo.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvclo_RowHeaderMouseClick);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 40;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -210,6 +205,20 @@
             this.linkLabel3.Text = "GoToRubrics--->";
             this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
+            // projectBDataSet5
+            // 
+            this.projectBDataSet5.DataSetName = "ProjectBDataSet5";
+            this.projectBDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cloBindingSource1
+            // 
+            this.cloBindingSource1.DataMember = "Clo";
+            this.cloBindingSource1.DataSource = this.projectBDataSet5;
+            // 
+            // cloTableAdapter1
+            // 
+            this.cloTableAdapter1.ClearBeforeFill = true;
+            // 
             // Clo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -233,6 +242,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvclo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,12 +261,14 @@
         private System.Windows.Forms.Button btnupdate;
         private System.Windows.Forms.Button btndelete;
         private ProjectBDataSet1TableAdapters.StudentTableAdapter studentTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateCreatedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateUpdatedDataGridViewTextBoxColumn;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel3;
+        private ProjectBDataSet5 projectBDataSet5;
+        private System.Windows.Forms.BindingSource cloBindingSource1;
+        private ProjectBDataSet5TableAdapters.CloTableAdapter cloTableAdapter1;
     }
 }

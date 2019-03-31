@@ -51,5 +51,13 @@ namespace LabManagementProject
             s.Show();
             this.Hide();
         }
+
+        private void linklblassement_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ManageAssessments s = new ManageAssessments();
+            s.Show();
+            this.Hide();
+
+        }
     }
 }

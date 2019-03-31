@@ -37,6 +37,7 @@
             this.lblmanageclos = new System.Windows.Forms.LinkLabel();
             this.lblmanagestudent = new System.Windows.Forms.LinkLabel();
             this.lblmanagerubrics = new System.Windows.Forms.LinkLabel();
+            this.linklblassement = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -52,21 +53,24 @@
             this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox2, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblheading, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lblcpy, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.lblmanageclos, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.lblmanagestudent, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblmanagerubrics, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.linklblassement, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.lblcpy, 1, 7);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.MaximumSize = new System.Drawing.Size(1366, 768);
             this.tableLayoutPanel1.MinimumSize = new System.Drawing.Size(100, 100);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowCount = 8;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 59.46844F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.53156F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 109F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 106F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 175F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 117F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 103F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 91F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 72F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1264, 728);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
@@ -75,7 +79,7 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(37, 36);
+            this.pictureBox1.Location = new System.Drawing.Point(37, 17);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(107, 107);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -86,7 +90,7 @@
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1134, 36);
+            this.pictureBox2.Location = new System.Drawing.Point(1134, 17);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(108, 107);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -98,7 +102,7 @@
             this.lblheading.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblheading.AutoSize = true;
             this.lblheading.Font = new System.Drawing.Font("Modern No. 20", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblheading.Location = new System.Drawing.Point(450, 70);
+            this.lblheading.Location = new System.Drawing.Point(450, 52);
             this.lblheading.Name = "lblheading";
             this.lblheading.Size = new System.Drawing.Size(393, 38);
             this.lblheading.TabIndex = 3;
@@ -109,7 +113,7 @@
             // 
             this.lblcpy.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblcpy.AutoSize = true;
-            this.lblcpy.Location = new System.Drawing.Point(497, 703);
+            this.lblcpy.Location = new System.Drawing.Point(497, 705);
             this.lblcpy.Name = "lblcpy";
             this.lblcpy.Size = new System.Drawing.Size(299, 13);
             this.lblcpy.TabIndex = 7;
@@ -120,7 +124,7 @@
             this.lblmanageclos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblmanageclos.AutoSize = true;
             this.lblmanageclos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmanageclos.Location = new System.Drawing.Point(606, 347);
+            this.lblmanageclos.Location = new System.Drawing.Point(606, 288);
             this.lblmanageclos.Name = "lblmanageclos";
             this.lblmanageclos.Size = new System.Drawing.Size(81, 16);
             this.lblmanageclos.TabIndex = 2;
@@ -133,7 +137,7 @@
             this.lblmanagestudent.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblmanagestudent.AutoSize = true;
             this.lblmanagestudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmanagestudent.Location = new System.Drawing.Point(594, 232);
+            this.lblmanagestudent.Location = new System.Drawing.Point(594, 182);
             this.lblmanagestudent.Name = "lblmanagestudent";
             this.lblmanagestudent.Size = new System.Drawing.Size(106, 16);
             this.lblmanagestudent.TabIndex = 1;
@@ -146,13 +150,25 @@
             this.lblmanagerubrics.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblmanagerubrics.AutoSize = true;
             this.lblmanagerubrics.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmanagerubrics.Location = new System.Drawing.Point(593, 455);
+            this.lblmanagerubrics.Location = new System.Drawing.Point(593, 398);
             this.lblmanagerubrics.Name = "lblmanagerubrics";
             this.lblmanagerubrics.Size = new System.Drawing.Size(107, 16);
             this.lblmanagerubrics.TabIndex = 3;
             this.lblmanagerubrics.TabStop = true;
             this.lblmanagerubrics.Text = "Manage Rubrics";
             this.lblmanagerubrics.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblmanagerubrics_LinkClicked);
+            // 
+            // linklblassement
+            // 
+            this.linklblassement.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.linklblassement.AutoSize = true;
+            this.linklblassement.Location = new System.Drawing.Point(597, 497);
+            this.linklblassement.Name = "linklblassement";
+            this.linklblassement.Size = new System.Drawing.Size(100, 13);
+            this.linklblassement.TabIndex = 8;
+            this.linklblassement.TabStop = true;
+            this.linklblassement.Text = "Manage Assesment";
+            this.linklblassement.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblassement_LinkClicked);
             // 
             // Home
             // 
@@ -185,5 +201,6 @@
         private System.Windows.Forms.LinkLabel lblmanageclos;
         private System.Windows.Forms.LinkLabel lblmanagerubrics;
         private System.Windows.Forms.Label lblcpy;
+        private System.Windows.Forms.LinkLabel linklblassement;
     }
 }

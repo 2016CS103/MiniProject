@@ -51,11 +51,16 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.projectBDataSet6 = new LabManagementProject.ProjectBDataSet6();
+            this.cloBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.cloTableAdapter1 = new LabManagementProject.ProjectBDataSet6TableAdapters.CloTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvrubric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rubricBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtrubricid
@@ -107,8 +112,8 @@
             // 
             // cmbcloid
             // 
-            this.cmbcloid.DataSource = this.cloBindingSource;
-            this.cmbcloid.DisplayMember = "Id";
+            this.cmbcloid.DataSource = this.cloBindingSource1;
+            this.cmbcloid.DisplayMember = "Name";
             this.cmbcloid.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbcloid.FormattingEnabled = true;
             this.cmbcloid.Location = new System.Drawing.Point(152, 208);
@@ -116,7 +121,7 @@
             this.cmbcloid.Name = "cmbcloid";
             this.cmbcloid.Size = new System.Drawing.Size(160, 24);
             this.cmbcloid.TabIndex = 26;
-            this.cmbcloid.ValueMember = "Id";
+            this.cmbcloid.ValueMember = "Name";
             // 
             // cloBindingSource
             // 
@@ -257,6 +262,20 @@
             this.linkLabel3.Text = "ManageClo";
             this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
+            // projectBDataSet6
+            // 
+            this.projectBDataSet6.DataSetName = "ProjectBDataSet6";
+            this.projectBDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cloBindingSource1
+            // 
+            this.cloBindingSource1.DataMember = "Clo";
+            this.cloBindingSource1.DataSource = this.projectBDataSet6;
+            // 
+            // cloTableAdapter1
+            // 
+            this.cloTableAdapter1.ClearBeforeFill = true;
+            // 
             // Rubric
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -286,6 +305,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvrubric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rubricBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,5 +336,8 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel3;
+        private ProjectBDataSet6 projectBDataSet6;
+        private System.Windows.Forms.BindingSource cloBindingSource1;
+        private ProjectBDataSet6TableAdapters.CloTableAdapter cloTableAdapter1;
     }
 }
