@@ -16,10 +16,11 @@ namespace LabManagementProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Home());
+            // Application.Run(new Home());
             //Application.Run(new Clo());
             //Application.Run(new FrmStudent());
             //Application.Run(new Rubric());
+            Application.Run(new StudentAttendance());
         }
     }
 }
