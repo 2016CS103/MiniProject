@@ -14,3 +14,5 @@ C:\Users\faraz06\Desktop\Semester 6\DBMS\Lab\lab7\LabManagementProject\MiniProje
 C:\Users\faraz06\Desktop\Semester 6\DBMS\Lab\lab7\LabManagementProject\MiniProject\LabManagementProject\obj\Debug\LabManagementProject.csprojResolveAssemblyReference.cache
 C:\Users\faraz06\Desktop\Semester 6\DBMS\Lab\lab7\LabManagementProject\MiniProject\LabManagementProject\obj\Debug\LabManagementProject.StudentAttendance.resources
 C:\Users\faraz06\Desktop\Semester 6\DBMS\Lab\lab7\LabManagementProject\MiniProject\LabManagementProject\obj\Debug\LabManagementProject.AssessmentComponent.resources
+C:\Users\faraz06\Desktop\Semester 6\DBMS\Lab\lab7\LabManagementProject\MiniProject\LabManagementProject\obj\Debug\LabManagementProject.RubricLevel.resources
+C:\Users\faraz06\Desktop\Semester 6\DBMS\Lab\lab7\LabManagementProject\MiniProject\LabManagementProject\obj\Debug\LabManagementProject.StudentResult.resources

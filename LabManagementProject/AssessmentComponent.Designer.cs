@@ -127,7 +127,7 @@
             this.cmbrubric.DisplayMember = "Details";
             this.cmbrubric.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbrubric.FormattingEnabled = true;
-            this.cmbrubric.Location = new System.Drawing.Point(516, 139);
+            this.cmbrubric.Location = new System.Drawing.Point(516, 143);
             this.cmbrubric.Name = "cmbrubric";
             this.cmbrubric.Size = new System.Drawing.Size(121, 21);
             this.cmbrubric.TabIndex = 5;

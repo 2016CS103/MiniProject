@@ -105,6 +105,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProjectBDataSet10.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ProjectBDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectBDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectBDataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectBDataSet12.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectBDataSet13.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectBDataSet13.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectBDataSet14.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectBDataSet14.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectBDataSet15.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectBDataSet15.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ProjectBDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -151,6 +176,12 @@
     <Compile Include="Rubric.Designer.cs">
       <DependentUpon>Rubric.cs</DependentUpon>
     </Compile>
+    <Compile Include="RubricLevel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RubricLevel.Designer.cs">
+      <DependentUpon>RubricLevel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Student.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +195,12 @@
     </Compile>
     <Compile Include="StudentAttendance.Designer.cs">
       <DependentUpon>StudentAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentResult.Designer.cs">
+      <DependentUpon>StudentResult.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AssessmentComponent.resx">
       <DependentUpon>AssessmentComponent.cs</DependentUpon>
@@ -180,6 +217,9 @@
     <EmbeddedResource Include="Rubric.resx">
       <DependentUpon>Rubric.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RubricLevel.resx">
+      <DependentUpon>RubricLevel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Student.resx">
       <DependentUpon>Student.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +234,9 @@
     </Compile>
     <EmbeddedResource Include="StudentAttendance.resx">
       <DependentUpon>StudentAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentResult.resx">
+      <DependentUpon>StudentResult.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ProjectBDataSet.xsc">
       <DependentUpon>ProjectBDataSet.xsd</DependentUpon>
@@ -227,6 +270,61 @@
     </None>
     <None Include="ProjectBDataSet10.xss">
       <DependentUpon>ProjectBDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectBDataSet11.xsc">
+      <DependentUpon>ProjectBDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectBDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProjectBDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectBDataSet11.xss">
+      <DependentUpon>ProjectBDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectBDataSet12.xsc">
+      <DependentUpon>ProjectBDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectBDataSet12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProjectBDataSet12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectBDataSet12.xss">
+      <DependentUpon>ProjectBDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectBDataSet13.xsc">
+      <DependentUpon>ProjectBDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectBDataSet13.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProjectBDataSet13.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectBDataSet13.xss">
+      <DependentUpon>ProjectBDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectBDataSet14.xsc">
+      <DependentUpon>ProjectBDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectBDataSet14.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProjectBDataSet14.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectBDataSet14.xss">
+      <DependentUpon>ProjectBDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectBDataSet15.xsc">
+      <DependentUpon>ProjectBDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectBDataSet15.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProjectBDataSet15.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectBDataSet15.xss">
+      <DependentUpon>ProjectBDataSet15.xsd</DependentUpon>
     </None>
     <None Include="ProjectBDataSet2.xsc">
       <DependentUpon>ProjectBDataSet2.xsd</DependentUpon>
