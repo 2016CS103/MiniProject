@@ -51,28 +51,38 @@ namespace LabManagementProject
 
         private void btnaddrubric_Click(object sender, EventArgs e)
         {
-            if (txtrubricid.Text != "" && rchclodetails.Text !="" && cmbcloid.Text!="")
+            try
             {
-                con.Open();
-                SqlCommand cmd = con.CreateCommand();
-                SqlCommand query = con.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                query.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into Rubric(Id, Details, CloId) values(@Id, @details, @cloid) ";
-                cmd.Parameters.AddWithValue("@Id", txtrubricid.Text);
-                cmd.Parameters.AddWithValue("@details", rchclodetails.Text);
-                query.CommandText = "Select Id from Clo where Name = '" + cmbcloid.Text + "' ";
-                cmd.Parameters.AddWithValue("@cloid", (int)query.ExecuteScalar());
-                cmd.ExecuteNonQuery();
+                if (txtrubricid.Text != "" && rchclodetails.Text != "" && cmbcloid.Text != "")
+                {
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+                    SqlCommand query = con.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    query.CommandType = CommandType.Text;
+                    cmd.CommandText = "insert into Rubric(Id, Details, CloId) values(@Id, @details, @cloid) ";
+                    cmd.Parameters.AddWithValue("@Id", txtrubricid.Text);
+                    cmd.Parameters.AddWithValue("@details", rchclodetails.Text);
+                    query.CommandText = "Select Id from Clo where Name = '" + cmbcloid.Text + "' ";
+                    cmd.Parameters.AddWithValue("@cloid", (int)query.ExecuteScalar());
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    DisplayData();
+                    MessageBox.Show("Record Inserted Successfully");
+                    RemoveData();
+                }
+                else
+                {
+                    MessageBox.Show("Please Fill the text fields!");
+                }
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Enter the correct value of Id");
                 con.Close();
-                DisplayData();
-                MessageBox.Show("Record Inserted Successfully");
-                RemoveData();
             }
-            else
-            {
-                MessageBox.Show("Please Fill the text fields!");
-            }
+            
         }
         /// <summary>
         /// this function is used to display the data in the dataGridView

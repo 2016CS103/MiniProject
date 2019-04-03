@@ -34,7 +34,7 @@ namespace LabManagementProject
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT COUNT(Title) FROM Assessment WHERE Title = @title";
+                cmd.CommandText = "SELECT COUNT(*) FROM Assessment WHERE Title = @title";
                 cmd.Parameters.AddWithValue("@title", txttitle.Text);
                 int records = (int)cmd.ExecuteScalar();
                 if (records == 0)
@@ -55,7 +55,8 @@ namespace LabManagementProject
                 {
                     MessageBox.Show("Record Already Exist!");
                     con.Close();
-                    
+                    RemoveData();
+
                 }
 
             }
@@ -118,31 +119,19 @@ namespace LabManagementProject
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT COUNT(Title) FROM Assessment WHERE Title = @title";
+                cmd.CommandText =
+                        "update Assessment set Title = @title, TotalMarks = @totalmarks, TotalWeightage = @totalweightage where Id=@id ";
+                cmd.Parameters.AddWithValue("@id", Id);
                 cmd.Parameters.AddWithValue("@title", txttitle.Text);
-                int records = (int)cmd.ExecuteScalar();
-                if (records == 0)
-                {
-                    cmd.CommandText = "update Assessment set Title = @title, TotalMarks = @totalmarks, TotalWeightage = @totalweightage where Id=@id ";
-                    cmd.Parameters.AddWithValue("@id", Id);
-                  //  cmd.Parameters.AddWithValue("@title", txttitle.Text);
-                    cmd.Parameters.AddWithValue("@totalmarks", txttotalmarks.Text);
-                    cmd.Parameters.AddWithValue("@totalweightage", txttotalweightage.Text);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    DisplayData();
-                    MessageBox.Show("Record Updated Successfully");
-                    RemoveData();
-                    btnaddassessment.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Record Already Exist!");
-                    con.Close();
-
-                }
-
-            }
+                cmd.Parameters.AddWithValue("@totalmarks", txttotalmarks.Text);
+                cmd.Parameters.AddWithValue("@totalweightage", txttotalweightage.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                DisplayData();
+                MessageBox.Show("Record Updated Successfully");
+                RemoveData();
+                btnaddassessment.Show();
+             }
             else
             {
                 MessageBox.Show("Please Select Record to Update");

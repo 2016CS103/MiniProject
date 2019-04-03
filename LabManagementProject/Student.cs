@@ -182,8 +182,15 @@ namespace LabManagementProject
                 txtcontact.Text = dgvstudent.Rows[e.RowIndex].Cells[2].Value.ToString();
                 txtemail.Text = dgvstudent.Rows[e.RowIndex].Cells[3].Value.ToString();
                 txtregistration.Text = dgvstudent.Rows[e.RowIndex].Cells[4].Value.ToString();
-                cmbStatus.Text = dgvstudent.Rows[e.RowIndex].Cells[5].Value.ToString();
+                //   cmbStatus.Text = dgvstudent.Rows[e.RowIndex].Cells[5].Value.ToString();
                 con.Open();
+                SqlCommand cmd2 = con.CreateCommand();
+                cmd2.CommandType = CommandType.Text;
+                cmd2.CommandText = "select Name from Lookup where LookupId = '" + dgvstudent.Rows[e.RowIndex].Cells[5].Value.ToString() + "' ";
+                //cmd2.ExecuteNonQuery();
+                cmbStatus.Text = cmd2.ExecuteScalar().ToString();
+
+                
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "select Id from Student where RegistrationNumber ='"+ txtregistration.Text +"' ";
@@ -419,6 +426,13 @@ namespace LabManagementProject
             
             Home h = new Home();
             h.Show();
+            this.Hide();
+        }
+
+        private void btnmarkattendance_Click(object sender, EventArgs e)
+        {
+            StudentAttendance a = new StudentAttendance();
+            a.Show();
             this.Hide();
         }
     }

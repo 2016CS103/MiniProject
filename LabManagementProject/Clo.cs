@@ -45,15 +45,30 @@ namespace LabManagementProject
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into Clo(Name, DateCreated, DateUpdated) values(@name, @datecreated, @dateupdated) ";
+                cmd.CommandText = "SELECT COUNT(Name) FROM Clo WHERE Name = @name";
                 cmd.Parameters.AddWithValue("@name", txtcloname.Text);
-                cmd.Parameters.AddWithValue("@datecreated", DateTime.Now);
-                cmd.Parameters.AddWithValue("@dateupdated", DateTime.Now);
-                cmd.ExecuteNonQuery();
-                con.Close();
-                DisplayData();
-                MessageBox.Show("Record Inserted Successfully");
-                RemoveData();
+                int records = (int)cmd.ExecuteScalar();
+                if (records == 0)
+                {
+                    
+                    cmd.CommandText =
+                        "insert into Clo(Name, DateCreated, DateUpdated) values(@name, @datecreated, @dateupdated) ";
+                    
+                    cmd.Parameters.AddWithValue("@datecreated", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@dateupdated", DateTime.Now);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    DisplayData();
+                    MessageBox.Show("Record Inserted Successfully");
+                    RemoveData();
+                }
+                else
+                {
+                    MessageBox.Show("Record Already Exist!");
+                    con.Close();
+                    RemoveData();
+
+                }
             }
             else
             {

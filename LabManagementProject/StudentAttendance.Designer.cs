@@ -39,6 +39,8 @@
             this.cmbstatus = new System.Windows.Forms.ComboBox();
             this.studentTableAdapter = new LabManagementProject.ProjectBDataSet7TableAdapters.StudentTableAdapter();
             this.btnmarkattendance = new System.Windows.Forms.Button();
+            this.lblbacktohome = new System.Windows.Forms.LinkLabel();
+            this.lblassessment = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet7)).BeginInit();
             this.SuspendLayout();
@@ -123,17 +125,44 @@
             this.btnmarkattendance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnmarkattendance.Location = new System.Drawing.Point(204, 212);
             this.btnmarkattendance.Name = "btnmarkattendance";
-            this.btnmarkattendance.Size = new System.Drawing.Size(121, 23);
+            this.btnmarkattendance.Size = new System.Drawing.Size(67, 23);
             this.btnmarkattendance.TabIndex = 6;
-            this.btnmarkattendance.Text = "Mark Attendance";
+            this.btnmarkattendance.Text = "Save";
             this.btnmarkattendance.UseVisualStyleBackColor = true;
             this.btnmarkattendance.Click += new System.EventHandler(this.btnmarkattendance_Click);
+            // 
+            // lblbacktohome
+            // 
+            this.lblbacktohome.AutoSize = true;
+            this.lblbacktohome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblbacktohome.Location = new System.Drawing.Point(33, 304);
+            this.lblbacktohome.Name = "lblbacktohome";
+            this.lblbacktohome.Size = new System.Drawing.Size(45, 16);
+            this.lblbacktohome.TabIndex = 7;
+            this.lblbacktohome.TabStop = true;
+            this.lblbacktohome.Text = "Home";
+            this.lblbacktohome.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblbacktohome_LinkClicked);
+            // 
+            // lblassessment
+            // 
+            this.lblassessment.AutoSize = true;
+            this.lblassessment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblassessment.Location = new System.Drawing.Point(443, 304);
+            this.lblassessment.Name = "lblassessment";
+            this.lblassessment.Size = new System.Drawing.Size(135, 16);
+            this.lblassessment.TabIndex = 8;
+            this.lblassessment.TabStop = true;
+            this.lblassessment.Text = "Manage Assessment";
+            this.lblassessment.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblassessment_LinkClicked);
             // 
             // StudentAttendance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(540, 403);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(671, 456);
+            this.Controls.Add(this.lblassessment);
+            this.Controls.Add(this.lblbacktohome);
             this.Controls.Add(this.btnmarkattendance);
             this.Controls.Add(this.cmbstatus);
             this.Controls.Add(this.dateTimePicker1);
@@ -163,5 +192,7 @@
         private System.Windows.Forms.BindingSource studentBindingSource;
         private ProjectBDataSet7TableAdapters.StudentTableAdapter studentTableAdapter;
         private System.Windows.Forms.Button btnmarkattendance;
+        private System.Windows.Forms.LinkLabel lblbacktohome;
+        private System.Windows.Forms.LinkLabel lblassessment;
     }
 }
