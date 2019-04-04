@@ -14,7 +14,7 @@ namespace LabManagementProject
     public partial class StudentResult : Form
     {
         SqlConnection con = new SqlConnection(@"Data Source = FARAZ; Initial Catalog = ProjectB; Integrated Security = True");
-        private int Id = 0;
+       // private int Id = 0;
         public StudentResult()
         {
             InitializeComponent();
@@ -22,6 +22,8 @@ namespace LabManagementProject
 
         private void StudentResult_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'projectBDataSet17.Assessment' table. You can move, or remove it, as needed.
+            this.assessmentTableAdapter.Fill(this.projectBDataSet17.Assessment);
             // TODO: This line of code loads data into the 'projectBDataSet15.StudentResult' table. You can move, or remove it, as needed.
             this.studentResultTableAdapter.Fill(this.projectBDataSet15.StudentResult);
             // TODO: This line of code loads data into the 'projectBDataSet14.AssessmentComponent' table. You can move, or remove it, as needed.
@@ -81,7 +83,7 @@ namespace LabManagementProject
             query1.CommandType = CommandType.Text;
             cmd.CommandText = "Insert into StudentResult (StudentId, AssessmentComponentId, RubricMeasurementId, EvaluationDate) values(@studentId, @assessmentcomponentid, @rubricmeasurementid, @evaluationdate)";
             query1.CommandText = "Select Id from Student where RegistrationNumber = '" + cmbregistration.Text + "'";
-            query.CommandText = "Select Id from AssessmentComponent where Name = '" + cmbassessment.Text + "' ";
+            query.CommandText = "Select Id from AssessmentComponent where Name = '" + cmbassessmentcomponent.Text + "' ";
             query0.CommandText = "Select Id from RubricLevel where  MeasurementLevel ='" +record+"' ";
             cmd.Parameters.AddWithValue("@assessmentcomponentid", (int)query.ExecuteScalar());
             cmd.Parameters.AddWithValue("@studentId", (int)query1.ExecuteScalar());
@@ -95,6 +97,27 @@ namespace LabManagementProject
             DisplayData();
             con.Close();
             
-        }   
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Home h = new Home();
+            h.Show();
+            this.Hide();
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmStudent s = new FrmStudent();
+            s.Show();
+            this.Hide();
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ManageAssessments m = new ManageAssessments();
+            m.Show();
+            this.Hide();
+        }
     }
 }

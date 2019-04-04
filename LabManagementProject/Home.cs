@@ -59,5 +59,19 @@ namespace LabManagementProject
             this.Hide();
 
         }
+
+        private void lblmanagerubriclevel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RubricLevel r = new RubricLevel();
+            r.Show();
+            this.Hide();
+        }
+
+        private void lblmarkevaluation_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            StudentResult s = new StudentResult();
+            s.Show();
+            this.Hide();
+        }
     }
 }

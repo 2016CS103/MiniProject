@@ -35,6 +35,8 @@
             this.lblcloid = new System.Windows.Forms.Label();
             this.rchclodetails = new System.Windows.Forms.RichTextBox();
             this.cmbcloid = new System.Windows.Forms.ComboBox();
+            this.cloBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.projectBDataSet6 = new LabManagementProject.ProjectBDataSet6();
             this.cloBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectBDataSet3 = new LabManagementProject.ProjectBDataSet3();
             this.dgvrubric = new System.Windows.Forms.DataGridView();
@@ -51,16 +53,14 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
-            this.projectBDataSet6 = new LabManagementProject.ProjectBDataSet6();
-            this.cloBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.cloTableAdapter1 = new LabManagementProject.ProjectBDataSet6TableAdapters.CloTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvrubric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rubricBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtrubricid
@@ -122,6 +122,16 @@
             this.cmbcloid.Size = new System.Drawing.Size(160, 24);
             this.cmbcloid.TabIndex = 26;
             this.cmbcloid.ValueMember = "Name";
+            // 
+            // cloBindingSource1
+            // 
+            this.cloBindingSource1.DataMember = "Clo";
+            this.cloBindingSource1.DataSource = this.projectBDataSet6;
+            // 
+            // projectBDataSet6
+            // 
+            this.projectBDataSet6.DataSetName = "ProjectBDataSet6";
+            this.projectBDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // cloBindingSource
             // 
@@ -232,10 +242,10 @@
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.Location = new System.Drawing.Point(149, 418);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(101, 15);
+            this.linkLabel1.Size = new System.Drawing.Size(41, 15);
             this.linkLabel1.TabIndex = 31;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "<---BackToHome";
+            this.linkLabel1.Text = "Home";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // linkLabel2
@@ -256,21 +266,11 @@
             this.linkLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel3.Location = new System.Drawing.Point(782, 418);
             this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(71, 15);
+            this.linkLabel3.Size = new System.Drawing.Size(119, 15);
             this.linkLabel3.TabIndex = 33;
             this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "ManageClo";
+            this.linkLabel3.Text = "ManageAssessment";
             this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
-            // 
-            // projectBDataSet6
-            // 
-            this.projectBDataSet6.DataSetName = "ProjectBDataSet6";
-            this.projectBDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cloBindingSource1
-            // 
-            this.cloBindingSource1.DataMember = "Clo";
-            this.cloBindingSource1.DataSource = this.projectBDataSet6;
             // 
             // cloTableAdapter1
             // 
@@ -300,13 +300,13 @@
             this.Name = "Rubric";
             this.Text = "Rubric";
             this.Load += new System.EventHandler(this.Rubric_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvrubric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rubricBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

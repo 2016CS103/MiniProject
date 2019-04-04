@@ -200,7 +200,7 @@ namespace LabManagementProject
         /// <param name="e"></param>
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Clo c = new Clo();
+            ManageAssessments c = new ManageAssessments();
             c.Show();
             this.Hide();
         }

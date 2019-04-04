@@ -24,6 +24,8 @@ namespace LabManagementProject
 
         private void RubricLevel_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'projectBDataSet16.Rubric' table. You can move, or remove it, as needed.
+            this.rubricTableAdapter1.Fill(this.projectBDataSet16.Rubric);
             // TODO: This line of code loads data into the 'projectBDataSet12.RubricLevel' table. You can move, or remove it, as needed.
             this.rubricLevelTableAdapter.Fill(this.projectBDataSet12.RubricLevel);
             // TODO: This line of code loads data into the 'projectBDataSet11.Rubric' table. You can move, or remove it, as needed.
@@ -53,38 +55,23 @@ namespace LabManagementProject
 
         private void btnadd_Click(object sender, EventArgs e)
         {
-            if (cmbrubriclevel.Text != "" && cmbdetail.Text != "")
+            if (cmbrubriclevel.Text != "" && cmbid.Text != "" && txtrubricdetails.Text !="")
             {
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText =
-                    "SELECT COUNT(*) FROM RubricLevel WHERE RubricId = @rubricId AND Details =@details ";
-                cmd.Parameters.AddWithValue("@rubricId", RubicId(cmbdetail.Text));
-                cmd.Parameters.AddWithValue("@details", cmbdetail.Text);
-                int records = (int) cmd.ExecuteScalar();
-                if (records == 0)
-                {
-
-                    cmd.CommandText =
                         "insert into RubricLevel(RubricId, Details, MeasurementLevel) values(@rubricId,@details,@measurementlevel)";
 
-                    
-                    cmd.Parameters.AddWithValue("@measurementlevel", Level(cmbrubriclevel.Text));
-
-
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    DisplayData();
-                    MessageBox.Show("Record Inserted Successfully");
-                    RemoveData();
-                }
-                else
-                {
-                    MessageBox.Show("Record Already Exist!");
-                    RemoveData();
-                    con.Close();
-                }
+                cmd.Parameters.AddWithValue("@rubricId", cmbid.Text);
+                cmd.Parameters.AddWithValue("@measurementlevel", Level(cmbrubriclevel.Text));
+                cmd.Parameters.AddWithValue("@details", txtrubricdetails.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                DisplayData();
+                MessageBox.Show("Record Inserted Successfully");
+                RemoveData();
+              
             
             }
             else
@@ -92,14 +79,14 @@ namespace LabManagementProject
                 MessageBox.Show("Please Provide Details With Correct Format!");
             }
         }
-        public int RubicId(String s)
+      /*  public int RubicId(String s)
         {
 
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT Id FROM Rubric WHERE Details = '" + cmbdetail.Text + "'";
+            cmd.CommandText = "SELECT Id FROM Rubric WHERE Details = '" + cmbid.Text + "'";
             return (int)cmd.ExecuteScalar();
-        }
+        }*/
         public void DisplayData()
         {
             con.Open();
@@ -119,7 +106,8 @@ namespace LabManagementProject
         /// </summary>
         private void RemoveData()
         {
-            cmbdetail.Text = "";
+            cmbid.Text = "";
+            txtrubricdetails.Text = "";
             cmbrubriclevel.Text = "";
             
 
@@ -127,12 +115,15 @@ namespace LabManagementProject
 
         private void dgvrubriclevel_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            
+            cmbid.Text = dgvrubriclevel.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtrubricdetails.Text = dgvrubriclevel.Rows[e.RowIndex].Cells[1].Value.ToString();
+
+
             con.Open();
-            SqlCommand cmd0 = con.CreateCommand();
+           /* SqlCommand cmd0 = con.CreateCommand();
             cmd0.CommandType = CommandType.Text;
             cmd0.CommandText = "select Details from Rubric where Details = '" + dgvrubriclevel.Rows[e.RowIndex].Cells[1].Value.ToString() + "' ";
-            cmbdetail.Text = cmd0.ExecuteScalar().ToString();
+            cmbid.Text = cmd0.ExecuteScalar().ToString();*/
 
             SqlCommand cmd2 = con.CreateCommand();
             cmd2.CommandType = CommandType.Text;
@@ -156,7 +147,7 @@ namespace LabManagementProject
 
             SqlCommand cmd1 = con.CreateCommand();
             cmd1.CommandType = CommandType.Text;
-            cmd1.CommandText = "select Id from RubricLevel where Details ='" + cmbdetail.Text + "' ";
+            cmd1.CommandText = "select Id from RubricLevel where RubricId ='" + cmbid.Text + "' ";
             cmd1.ExecuteNonQuery();
             Id = Convert.ToInt32(cmd1.ExecuteScalar());
             con.Close();
@@ -165,15 +156,15 @@ namespace LabManagementProject
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
-            if (cmbdetail.Text != "" && cmbrubriclevel.Text != "")
+            if (cmbid.Text != "" && cmbrubriclevel.Text != "")
             {
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "update RubricLevel set RubricId=@rubricId,Details=@details,MeasurementLevel=@measurementlevel where Id=@id";
                 cmd.Parameters.AddWithValue("@id", Id);
-                cmd.Parameters.AddWithValue("@rubricId", RubicId(cmbdetail.Text));
-                cmd.Parameters.AddWithValue("@details", cmbdetail.Text);
+                cmd.Parameters.AddWithValue("@rubricId", cmbid.Text);
+                cmd.Parameters.AddWithValue("@details", txtrubricdetails.Text);
                 
                 cmd.Parameters.AddWithValue("@measurementlevel", Level(cmbrubriclevel.Text));
                 
@@ -192,7 +183,7 @@ namespace LabManagementProject
 
         private void btndelete_Click(object sender, EventArgs e)
         {
-            if (cmbdetail.Text != "" && cmbrubriclevel.Text != "")
+            if (cmbid.Text != "" && cmbrubriclevel.Text != "" && txtrubricdetails.Text !="")
             {
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();

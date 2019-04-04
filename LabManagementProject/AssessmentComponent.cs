@@ -184,5 +184,26 @@ namespace LabManagementProject
                 btnadd.Show();
             }
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Home h = new Home();
+            h.Show();
+            this.Hide();
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RubricLevel r = new RubricLevel();
+            r.Show();
+            this.Hide();
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ManageAssessments m = new ManageAssessments();
+            m.Show();
+            this.Hide();
+        }
     }
 }

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lbldetail = new System.Windows.Forms.Label();
-            this.cmbdetail = new System.Windows.Forms.ComboBox();
+            this.lblrubricid = new System.Windows.Forms.Label();
+            this.cmbid = new System.Windows.Forms.ComboBox();
             this.rubricBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectBDataSet11 = new LabManagementProject.ProjectBDataSet11();
             this.lblrubriclevel = new System.Windows.Forms.Label();
@@ -48,34 +48,41 @@
             this.btndelete = new System.Windows.Forms.Button();
             this.lblhome = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.projectBDataSet16 = new LabManagementProject.ProjectBDataSet16();
+            this.rubricBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.rubricTableAdapter1 = new LabManagementProject.ProjectBDataSet16TableAdapters.RubricTableAdapter();
+            this.txtrubricdetails = new System.Windows.Forms.TextBox();
+            this.lbldetails = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.rubricBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvrubriclevel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rubricLevelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rubricBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
-            // lbldetail
+            // lblrubricid
             // 
-            this.lbldetail.AutoSize = true;
-            this.lbldetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldetail.Location = new System.Drawing.Point(25, 70);
-            this.lbldetail.Name = "lbldetail";
-            this.lbldetail.Size = new System.Drawing.Size(92, 16);
-            this.lbldetail.TabIndex = 0;
-            this.lbldetail.Text = "Rubric Details";
+            this.lblrubricid.AutoSize = true;
+            this.lblrubricid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblrubricid.Location = new System.Drawing.Point(25, 70);
+            this.lblrubricid.Name = "lblrubricid";
+            this.lblrubricid.Size = new System.Drawing.Size(61, 16);
+            this.lblrubricid.TabIndex = 0;
+            this.lblrubricid.Text = "Rubric Id";
             // 
-            // cmbdetail
+            // cmbid
             // 
-            this.cmbdetail.DataSource = this.rubricBindingSource;
-            this.cmbdetail.DisplayMember = "Details";
-            this.cmbdetail.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbdetail.FormattingEnabled = true;
-            this.cmbdetail.Location = new System.Drawing.Point(140, 69);
-            this.cmbdetail.Name = "cmbdetail";
-            this.cmbdetail.Size = new System.Drawing.Size(121, 21);
-            this.cmbdetail.TabIndex = 1;
-            this.cmbdetail.ValueMember = "Details";
+            this.cmbid.DataSource = this.rubricBindingSource1;
+            this.cmbid.DisplayMember = "Id";
+            this.cmbid.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbid.FormattingEnabled = true;
+            this.cmbid.Location = new System.Drawing.Point(140, 69);
+            this.cmbid.Name = "cmbid";
+            this.cmbid.Size = new System.Drawing.Size(121, 21);
+            this.cmbid.TabIndex = 1;
+            this.cmbid.ValueMember = "Id";
             // 
             // rubricBindingSource
             // 
@@ -91,7 +98,7 @@
             // 
             this.lblrubriclevel.AutoSize = true;
             this.lblrubriclevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblrubriclevel.Location = new System.Drawing.Point(25, 137);
+            this.lblrubriclevel.Location = new System.Drawing.Point(25, 172);
             this.lblrubriclevel.Name = "lblrubriclevel";
             this.lblrubriclevel.Size = new System.Drawing.Size(83, 16);
             this.lblrubriclevel.TabIndex = 2;
@@ -106,7 +113,7 @@
             "Good",
             "Fair",
             "Unsatisfactory"});
-            this.cmbrubriclevel.Location = new System.Drawing.Point(140, 136);
+            this.cmbrubriclevel.Location = new System.Drawing.Point(140, 171);
             this.cmbrubriclevel.Name = "cmbrubriclevel";
             this.cmbrubriclevel.Size = new System.Drawing.Size(121, 21);
             this.cmbrubriclevel.TabIndex = 3;
@@ -114,7 +121,7 @@
             // btnadd
             // 
             this.btnadd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnadd.Location = new System.Drawing.Point(140, 184);
+            this.btnadd.Location = new System.Drawing.Point(140, 213);
             this.btnadd.Name = "btnadd";
             this.btnadd.Size = new System.Drawing.Size(75, 23);
             this.btnadd.TabIndex = 4;
@@ -137,7 +144,7 @@
             this.detailsDataGridViewTextBoxColumn,
             this.measurementLevelDataGridViewTextBoxColumn});
             this.dgvrubriclevel.DataSource = this.rubricLevelBindingSource;
-            this.dgvrubriclevel.Location = new System.Drawing.Point(300, 57);
+            this.dgvrubriclevel.Location = new System.Drawing.Point(376, 57);
             this.dgvrubriclevel.Name = "dgvrubriclevel";
             this.dgvrubriclevel.ReadOnly = true;
             this.dgvrubriclevel.Size = new System.Drawing.Size(344, 150);
@@ -225,12 +232,45 @@
             this.linkLabel2.Text = "StudentResult";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
+            // projectBDataSet16
+            // 
+            this.projectBDataSet16.DataSetName = "ProjectBDataSet16";
+            this.projectBDataSet16.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rubricBindingSource1
+            // 
+            this.rubricBindingSource1.DataMember = "Rubric";
+            this.rubricBindingSource1.DataSource = this.projectBDataSet16;
+            // 
+            // rubricTableAdapter1
+            // 
+            this.rubricTableAdapter1.ClearBeforeFill = true;
+            // 
+            // txtrubricdetails
+            // 
+            this.txtrubricdetails.Location = new System.Drawing.Point(140, 116);
+            this.txtrubricdetails.Name = "txtrubricdetails";
+            this.txtrubricdetails.Size = new System.Drawing.Size(121, 20);
+            this.txtrubricdetails.TabIndex = 10;
+            // 
+            // lbldetails
+            // 
+            this.lbldetails.AutoSize = true;
+            this.lbldetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldetails.Location = new System.Drawing.Point(25, 117);
+            this.lbldetails.Name = "lbldetails";
+            this.lbldetails.Size = new System.Drawing.Size(92, 16);
+            this.lbldetails.TabIndex = 11;
+            this.lbldetails.Text = "Rubric Details";
+            // 
             // RubricLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(762, 408);
+            this.Controls.Add(this.lbldetails);
+            this.Controls.Add(this.txtrubricdetails);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.lblhome);
             this.Controls.Add(this.btndelete);
@@ -239,8 +279,8 @@
             this.Controls.Add(this.btnadd);
             this.Controls.Add(this.cmbrubriclevel);
             this.Controls.Add(this.lblrubriclevel);
-            this.Controls.Add(this.cmbdetail);
-            this.Controls.Add(this.lbldetail);
+            this.Controls.Add(this.cmbid);
+            this.Controls.Add(this.lblrubricid);
             this.Name = "RubricLevel";
             this.Text = "RubricLevel";
             this.Load += new System.EventHandler(this.RubricLevel_Load);
@@ -249,6 +289,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvrubriclevel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rubricLevelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rubricBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,8 +298,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbldetail;
-        private System.Windows.Forms.ComboBox cmbdetail;
+        private System.Windows.Forms.Label lblrubricid;
+        private System.Windows.Forms.ComboBox cmbid;
         private System.Windows.Forms.Label lblrubriclevel;
         private System.Windows.Forms.ComboBox cmbrubriclevel;
         private System.Windows.Forms.Button btnadd;
@@ -275,5 +317,10 @@
         private System.Windows.Forms.Button btndelete;
         private System.Windows.Forms.LinkLabel lblhome;
         private System.Windows.Forms.LinkLabel linkLabel2;
+        private ProjectBDataSet16 projectBDataSet16;
+        private System.Windows.Forms.BindingSource rubricBindingSource1;
+        private ProjectBDataSet16TableAdapters.RubricTableAdapter rubricTableAdapter1;
+        private System.Windows.Forms.TextBox txtrubricdetails;
+        private System.Windows.Forms.Label lbldetails;
     }
 }

@@ -35,6 +35,8 @@
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateCreatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateUpdatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cloBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.projectBDataSet5 = new LabManagementProject.ProjectBDataSet5();
             this.cloBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectBDataSet = new LabManagementProject.ProjectBDataSet();
             this.cloTableAdapter = new LabManagementProject.ProjectBDataSetTableAdapters.CloTableAdapter();
@@ -45,14 +47,12 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
-            this.projectBDataSet5 = new LabManagementProject.ProjectBDataSet5();
-            this.cloBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.cloTableAdapter1 = new LabManagementProject.ProjectBDataSet5TableAdapters.CloTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvclo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblcloname
@@ -115,6 +115,16 @@
             this.dateUpdatedDataGridViewTextBoxColumn.Name = "dateUpdatedDataGridViewTextBoxColumn";
             this.dateUpdatedDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // cloBindingSource1
+            // 
+            this.cloBindingSource1.DataMember = "Clo";
+            this.cloBindingSource1.DataSource = this.projectBDataSet5;
+            // 
+            // projectBDataSet5
+            // 
+            this.projectBDataSet5.DataSetName = "ProjectBDataSet5";
+            this.projectBDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // cloBindingSource
             // 
             this.cloBindingSource.DataMember = "Clo";
@@ -175,10 +185,10 @@
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.Location = new System.Drawing.Point(61, 368);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(101, 15);
+            this.linkLabel1.Size = new System.Drawing.Size(41, 15);
             this.linkLabel1.TabIndex = 21;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "<---BackToHome";
+            this.linkLabel1.Text = "Home";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // linkLabel2
@@ -187,10 +197,10 @@
             this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel2.Location = new System.Drawing.Point(341, 368);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(125, 15);
+            this.linkLabel2.Size = new System.Drawing.Size(95, 15);
             this.linkLabel2.TabIndex = 22;
             this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "GoToManageStudent";
+            this.linkLabel2.Text = "ManageStudent";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // linkLabel3
@@ -199,21 +209,11 @@
             this.linkLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel3.Location = new System.Drawing.Point(640, 368);
             this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(98, 15);
+            this.linkLabel3.Size = new System.Drawing.Size(95, 15);
             this.linkLabel3.TabIndex = 23;
             this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "GoToRubrics--->";
+            this.linkLabel3.Text = "ManageRubrics";
             this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
-            // 
-            // projectBDataSet5
-            // 
-            this.projectBDataSet5.DataSetName = "ProjectBDataSet5";
-            this.projectBDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cloBindingSource1
-            // 
-            this.cloBindingSource1.DataMember = "Clo";
-            this.cloBindingSource1.DataSource = this.projectBDataSet5;
             // 
             // cloTableAdapter1
             // 
@@ -240,10 +240,10 @@
             this.Text = "Clo";
             this.Load += new System.EventHandler(this.Clo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvclo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectBDataSet5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cloBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -160,5 +160,19 @@ namespace LabManagementProject
                 btnaddassessment.Show();
             }
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Home h = new Home();
+            h.Show();
+            this.Hide();
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            AssessmentComponent a = new AssessmentComponent();
+            a.Show();
+            this.Hide();
+        }
     }
 }
