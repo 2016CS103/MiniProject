@@ -248,6 +248,14 @@ namespace LabManagementProject
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "delete from StudentResult where StudentId=@sid";
+                cmd.Parameters.AddWithValue("@sid", Id);
+                cmd.ExecuteNonQuery();
+
+                cmd.CommandText = "delete from StudentAttendance where StudentId=@aid";
+                cmd.Parameters.AddWithValue("@aid", Id);
+                cmd.ExecuteNonQuery();
+
                 cmd.CommandText = "delete Student where Id=@id";
                 cmd.Parameters.AddWithValue("@id", Id);
                 cmd.ExecuteNonQuery();

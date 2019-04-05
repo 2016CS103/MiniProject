@@ -140,6 +140,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProjectBDataSet17.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ProjectBDataSet18.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectBDataSet18.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ProjectBDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -357,6 +362,17 @@
     </None>
     <None Include="ProjectBDataSet17.xss">
       <DependentUpon>ProjectBDataSet17.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectBDataSet18.xsc">
+      <DependentUpon>ProjectBDataSet18.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectBDataSet18.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProjectBDataSet18.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectBDataSet18.xss">
+      <DependentUpon>ProjectBDataSet18.xsd</DependentUpon>
     </None>
     <None Include="ProjectBDataSet2.xsc">
       <DependentUpon>ProjectBDataSet2.xsd</DependentUpon>

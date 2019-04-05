@@ -188,6 +188,9 @@ namespace LabManagementProject
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "delete from StudentResult where RubricMeasurementId=@rid";
+                cmd.Parameters.AddWithValue("@rid", Id);
+                cmd.ExecuteNonQuery();
                 cmd.CommandText = "delete RubricLevel where Id=@id";
                 cmd.Parameters.AddWithValue("@id", Id);
                 cmd.ExecuteNonQuery();

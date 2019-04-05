@@ -16,3 +16,20 @@ C:\Users\faraz06\Desktop\Semester 6\DBMS\Lab\lab7\LabManagementProject\MiniProje
 C:\Users\faraz06\Desktop\Semester 6\DBMS\Lab\lab7\LabManagementProject\MiniProject\LabManagementProject\obj\Debug\LabManagementProject.AssessmentComponent.resources
 C:\Users\faraz06\Desktop\Semester 6\DBMS\Lab\lab7\LabManagementProject\MiniProject\LabManagementProject\obj\Debug\LabManagementProject.RubricLevel.resources
 C:\Users\faraz06\Desktop\Semester 6\DBMS\Lab\lab7\LabManagementProject\MiniProject\LabManagementProject\obj\Debug\LabManagementProject.StudentResult.resources
+C:\Users\faraz06\Desktop\test\LabManagementProject\bin\Debug\LabManagementProject.exe.config
+C:\Users\faraz06\Desktop\test\LabManagementProject\obj\Debug\LabManagementProject.exe
+C:\Users\faraz06\Desktop\test\LabManagementProject\obj\Debug\LabManagementProject.pdb
+C:\Users\faraz06\Desktop\test\LabManagementProject\bin\Debug\LabManagementProject.exe
+C:\Users\faraz06\Desktop\test\LabManagementProject\bin\Debug\LabManagementProject.pdb
+C:\Users\faraz06\Desktop\test\LabManagementProject\obj\Debug\LabManagementProject.csprojResolveAssemblyReference.cache
+C:\Users\faraz06\Desktop\test\LabManagementProject\obj\Debug\LabManagementProject.AssessmentComponent.resources
+C:\Users\faraz06\Desktop\test\LabManagementProject\obj\Debug\LabManagementProject.Clo.resources
+C:\Users\faraz06\Desktop\test\LabManagementProject\obj\Debug\LabManagementProject.Home.resources
+C:\Users\faraz06\Desktop\test\LabManagementProject\obj\Debug\LabManagementProject.ManageAssessments.resources
+C:\Users\faraz06\Desktop\test\LabManagementProject\obj\Debug\LabManagementProject.Rubric.resources
+C:\Users\faraz06\Desktop\test\LabManagementProject\obj\Debug\LabManagementProject.RubricLevel.resources
+C:\Users\faraz06\Desktop\test\LabManagementProject\obj\Debug\LabManagementProject.FrmStudent.resources
+C:\Users\faraz06\Desktop\test\LabManagementProject\obj\Debug\LabManagementProject.Properties.Resources.resources
+C:\Users\faraz06\Desktop\test\LabManagementProject\obj\Debug\LabManagementProject.StudentAttendance.resources
+C:\Users\faraz06\Desktop\test\LabManagementProject\obj\Debug\LabManagementProject.StudentResult.resources
+C:\Users\faraz06\Desktop\test\LabManagementProject\obj\Debug\LabManagementProject.csproj.GenerateResource.Cache

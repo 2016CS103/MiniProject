@@ -145,6 +145,9 @@ namespace LabManagementProject
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "delete from AssessmentComponent where AssessmentId=@cid";
+                cmd.Parameters.AddWithValue("@cid", Id);
+                cmd.ExecuteNonQuery();
                 cmd.CommandText = "delete from Assessment where Id=@id";
                 cmd.Parameters.AddWithValue("@id", Id);
                 cmd.ExecuteNonQuery();
