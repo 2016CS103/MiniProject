@@ -13,20 +13,31 @@ namespace LabManagementProject
 {
     public partial class ManageAssessments : Form
     {
+        /// <summary>
+        /// Con is variable used for the connection of database with this project.
+        /// </summary>
         SqlConnection con = new SqlConnection(@"Data Source = FARAZ; Initial Catalog = ProjectB; Integrated Security = True");
         private int Id = 0;
         public ManageAssessments()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// this is used to load the data of assessment in the grid view.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ManageAssessments_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'projectBDataSet4.Assessment' table. You can move, or remove it, as needed.
             this.assessmentTableAdapter.Fill(this.projectBDataSet4.Assessment);
 
         }
-
+        /// <summary>
+        /// this function is used to add the assessment to data base and display the data is grid view.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnaddassessment_Click(object sender, EventArgs e)
         {
             if (txttitle.Text != "" && txttotalmarks.Text != "" && txttotalweightage.Text != "")
@@ -65,9 +76,11 @@ namespace LabManagementProject
                 MessageBox.Show("Please Enter  Name of Assessment!");
             }
 
-
+          
         }
-
+        /// <summary>
+        /// this function is used to remove data from the all text boxes.
+        /// </summary>
         private void RemoveData()
         {
             txttitle.Text = "";
@@ -75,7 +88,9 @@ namespace LabManagementProject
             txttotalweightage.Text = "";
 
         }
-
+        /// <summary>
+        /// this function is used to display data in the data grid view.
+        /// </summary>
         public void DisplayData()
         {
             con.Open();
@@ -95,7 +110,11 @@ namespace LabManagementProject
         {
 
         }
-
+        /// <summary>
+        /// this is used to select data from row and fill the text boxes with the selected data.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvassessment_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
           //  Id = Convert.ToInt32(dgvassessment.Rows[e.RowIndex].Cells[0].Value.ToString());
@@ -111,7 +130,11 @@ namespace LabManagementProject
             con.Close();
             btnaddassessment.Hide();
         }
-
+        /// <summary>
+        /// this is used to update the selected data from the data base.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnupdate_Click(object sender, EventArgs e)
         {
             if (txttitle.Text != "" && txttotalmarks.Text != "" && txttotalweightage.Text !="")
@@ -137,7 +160,11 @@ namespace LabManagementProject
                 MessageBox.Show("Please Select Record to Update");
             }
         }
-
+        /// <summary>
+        /// this is used to delete the selected data from the data base.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btndelete_Click(object sender, EventArgs e)
         {
             if (Id != 0 && txttitle.Text != "" && txttotalmarks.Text != "" && txttotalweightage.Text != "")
@@ -163,14 +190,22 @@ namespace LabManagementProject
                 btnaddassessment.Show();
             }
         }
-
+        /// <summary>
+        /// this label is used to navigate to home page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Home h = new Home();
             h.Show();
             this.Hide();
         }
-
+        /// <summary>
+        /// this label is used to navigate to assesment component.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             AssessmentComponent a = new AssessmentComponent();

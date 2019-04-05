@@ -372,7 +372,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(798, 589);
+            this.ClientSize = new System.Drawing.Size(963, 634);
             this.Controls.Add(this.btnmarkattendance);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);

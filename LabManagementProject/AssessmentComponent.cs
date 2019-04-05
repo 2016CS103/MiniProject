@@ -13,13 +13,20 @@ namespace LabManagementProject
 {
     public partial class AssessmentComponent : Form
     {
+        /// <summary>
+        /// Con is variable used for the connection of database with this project.
+        /// </summary>
         SqlConnection con = new SqlConnection(@"Data Source = FARAZ; Initial Catalog = ProjectB; Integrated Security = True");
         private int Id = 0;
         public AssessmentComponent()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// this is used to load the form and fill data in assessment component and rubric level.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AssessmentComponent_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'projectBDataSet10.AssessmentComponent' table. You can move, or remove it, as needed.
@@ -31,6 +38,11 @@ namespace LabManagementProject
 
         }
 
+        /// <summary>
+        /// this is used to add the data in the database for the assessment component against the assessment.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnadd_Click(object sender, EventArgs e)
         {
             if (txtname.Text != "" && txttotalmarks.Text != "" )
@@ -70,12 +82,20 @@ namespace LabManagementProject
                 MessageBox.Show("Please Provide Details With Correct Format!");
             }
         }
+        /// <summary>
+        /// this function is used to remove data from text boxes.
+        /// </summary>
         private void RemoveData()
         {
             txtname.Text = "";
             txttotalmarks.Text = "";
 
         }
+        /// <summary>
+        /// this funtion gets the string of details and returns id of the rubric.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
 
         public int RubicId(String s)
         {
@@ -86,6 +106,11 @@ namespace LabManagementProject
             return (int) cmd.ExecuteScalar();
         }
 
+        /// <summary>
+        /// this function converts the string of assessment title and return the id.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
         public int AssessmentId(String s)
         {
             
@@ -94,6 +119,9 @@ namespace LabManagementProject
             cmd.CommandText = "SELECT Id FROM Assessment WHERE Title = '" + cmbassessment.Text + "'";
             return (int)cmd.ExecuteScalar();
         }
+        /// <summary>
+        /// this function is used to display data  in the grid view.
+        /// </summary>
         public void DisplayData()
         {
             con.Open();
@@ -109,6 +137,11 @@ namespace LabManagementProject
             con.Close();
         }
 
+        /// <summary>
+        /// this function is used to update the selected data from the data grid view.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnupdate_Click(object sender, EventArgs e)
         {
             if (txtname.Text != "" && txttotalmarks.Text != "")
@@ -136,6 +169,11 @@ namespace LabManagementProject
             }
         }
 
+        /// <summary>
+        /// this function is used to select the data from the row header, and return the data in the text box and combo box.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvassessmentcomponent_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             txtname.Text = dgvassessmentcomponent.Rows[e.RowIndex].Cells[0].Value.ToString();
@@ -160,6 +198,12 @@ namespace LabManagementProject
             con.Close();
             btnadd.Hide();
         }
+
+        /// <summary>
+        /// this is used to delete the selected data from the data grid view.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void btndelete_Click(object sender, EventArgs e)
         {
@@ -187,21 +231,33 @@ namespace LabManagementProject
                 btnadd.Show();
             }
         }
-
+        /// <summary>
+        /// this label is used to navigate to home page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Home h = new Home();
             h.Show();
             this.Hide();
         }
-
+        /// <summary>
+        /// this label is used to navigate to rubric level page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             RubricLevel r = new RubricLevel();
             r.Show();
             this.Hide();
         }
-
+        /// <summary>
+        /// this label is used to navigate to manage assessment.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ManageAssessments m = new ManageAssessments();

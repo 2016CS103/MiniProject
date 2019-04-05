@@ -13,6 +13,11 @@ namespace LabManagementProject
 {
     public partial class RubricLevel : Form
     {
+        
+        /// <summary>
+        /// Con is variable used for the connection of database with this project.
+        /// </summary>
+        
         SqlConnection con =
             new SqlConnection(@"Data Source = FARAZ; Initial Catalog = ProjectB; Integrated Security = True");
 
@@ -21,7 +26,11 @@ namespace LabManagementProject
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// on the load of rubric level form it fill the combo boxes with rubric ids that are added.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RubricLevel_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'projectBDataSet16.Rubric' table. You can move, or remove it, as needed.
@@ -33,6 +42,11 @@ namespace LabManagementProject
 
         }
 
+        /// <summary>
+        /// this function gets the level of rubric in the form of string and convert it into int value which is stored to db.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
         public int Level(string s)
         {
             if (cmbrubriclevel.Text == "Exceptional")
@@ -52,7 +66,11 @@ namespace LabManagementProject
                 return 1;
             }
         }
-
+        /// <summary>
+        /// this button is used to add the record in the data base from combo box or text box.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnadd_Click(object sender, EventArgs e)
         {
             if (cmbrubriclevel.Text != "" && cmbid.Text != "" && txtrubricdetails.Text !="")
@@ -87,6 +105,9 @@ namespace LabManagementProject
             cmd.CommandText = "SELECT Id FROM Rubric WHERE Details = '" + cmbid.Text + "'";
             return (int)cmd.ExecuteScalar();
         }*/
+        /// <summary>
+        /// this function is used to display the data in the grid view from db or textboxes.
+        /// </summary>
         public void DisplayData()
         {
             con.Open();
@@ -112,7 +133,11 @@ namespace LabManagementProject
             
 
         }
-
+        /// <summary>
+        /// this is used when we have to edit or delete the data, we select a row from the data grid view and the text boxes fill with that data.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvrubriclevel_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             cmbid.Text = dgvrubriclevel.Rows[e.RowIndex].Cells[0].Value.ToString();
@@ -153,7 +178,11 @@ namespace LabManagementProject
             con.Close();
             btnadd.Hide();
         }
-
+        /// <summary>
+        /// this is used to update the information that is selected from the data grid view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnupdate_Click(object sender, EventArgs e)
         {
             if (cmbid.Text != "" && cmbrubriclevel.Text != "")
@@ -181,6 +210,11 @@ namespace LabManagementProject
             }
         }
 
+        /// <summary>
+        /// this is used to delete the information that is selected from the data grid view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btndelete_Click(object sender, EventArgs e)
         {
             if (cmbid.Text != "" && cmbrubriclevel.Text != "" && txtrubricdetails.Text !="")
@@ -208,17 +242,33 @@ namespace LabManagementProject
             }
         }
 
+        /// <summary>
+        /// this label is used to navigate to home page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lblhome_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Home h = new Home();
             h.Show();
             this.Hide();
         }
-
+        /// <summary>
+        /// this label is used to navigate to Student result page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             StudentResult s = new StudentResult();
             s.Show();
+            this.Hide();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            AssessmentComponent a = new AssessmentComponent();
+            a.Show();
             this.Hide();
         }
     }

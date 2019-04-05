@@ -13,6 +13,9 @@ namespace LabManagementProject
 {
     public partial class StudentResult : Form
     {
+        /// <summary>
+        /// connection string used for connection with database.
+        /// </summary>
         SqlConnection con = new SqlConnection(@"Data Source = FARAZ; Initial Catalog = ProjectB; Integrated Security = True");
         // private int Id = 0;
         int a, Marks, compMarks;
@@ -21,6 +24,11 @@ namespace LabManagementProject
             InitializeComponent();
         }
 
+        /// <summary>
+        /// function are added to form load, when form is loaded comobo box fill with student ids and data grid view filled with data.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void StudentResult_Load(object sender, EventArgs e)
         {
              
@@ -46,7 +54,11 @@ namespace LabManagementProject
 
         }
         
-
+        /// <summary>
+        /// this function converts the string to integer that is stored against rubric level.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
 
         public int Level(string s)
         {
@@ -67,6 +79,13 @@ namespace LabManagementProject
                 return 1;
             }
         }
+
+
+        /// <summary>
+        /// added the combo box values to the grid view .
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void btneveluate_Click(object sender, EventArgs e)
         {
@@ -99,12 +118,24 @@ namespace LabManagementProject
             
         }
 
+        /// <summary>
+        /// link label used to go back to main page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Home h = new Home();
             h.Show();
             this.Hide();
         }
+
+        /// <summary>
+        /// to navigate to the student management form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -113,6 +144,11 @@ namespace LabManagementProject
             this.Hide();
         }
 
+        /// <summary>
+        /// this label is used to navigate to manage assessment form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ManageAssessments m = new ManageAssessments();
@@ -120,6 +156,13 @@ namespace LabManagementProject
             this.Hide();
         }
 
+
+
+        /// <summary>
+        /// when we select a value of assessment then this function fill the assessment component with the ids against that assessment.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbassessment_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbassessmentcomponent.Items.Clear();
@@ -152,6 +195,11 @@ namespace LabManagementProject
             
         }
 
+        /// <summary>
+        /// when the value of assessment component is selected than this function loads the rubric details against that component of assessment.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbassessmentcomponent_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbrubricdetail.Items.Clear();
@@ -183,6 +231,12 @@ namespace LabManagementProject
             con.Close();
         }
 
+        /// <summary>
+        /// when the value of rubric detail is selected than this function loads the rubric level against that component of assessment.
+
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbrubricdetail_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbrubriclevel.Items.Clear();
@@ -213,6 +267,12 @@ namespace LabManagementProject
             con.Close();
         }
 
+
+        /// <summary>
+        /// this function add the values of all combo boxes to the grid view and display the details of assessment.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnadd_Click(object sender, EventArgs e)
         {
             try
@@ -253,8 +313,13 @@ namespace LabManagementProject
           
            
         }
-       
-        
+
+        /// <summary>
+        /// when the value of rubric level is selected than this function loads the rubric level id against that component of assessment.
+
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void cmbrubriclevel_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -279,7 +344,11 @@ namespace LabManagementProject
             con.Close();
         }
 
-       
+       /// <summary>
+       /// this function is used to delete the assessment details of a specific student in the data grid view.
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
 
         private void dgvresult_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -287,7 +356,7 @@ namespace LabManagementProject
             int id2 = Convert.ToInt32(dgvresult.Rows[e.RowIndex].Cells[2].Value);
             if (e.ColumnIndex == 1)
             {
-                if (MessageBox.Show("Are you sure you want to delete this record?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Conform to Delete this record?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     con.Open();
                     this.dgvresult.Rows.RemoveAt(e.RowIndex);
@@ -307,6 +376,9 @@ namespace LabManagementProject
 
         }
 
+        /// <summary>
+        /// this function fill the comobo box of student id on the form load.
+        /// </summary>
         public void ComboboxFill()
         {
             string query = "SELECT Id FROM Student";
@@ -347,7 +419,9 @@ namespace LabManagementProject
             con.Close();
         }
 
-
+        /// <summary>
+        /// this function is used to display the assessment data of a student in the gridview. 
+        /// </summary>
         public void DisplayData()
         {
             string q1 =

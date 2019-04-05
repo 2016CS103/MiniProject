@@ -13,13 +13,20 @@ namespace LabManagementProject
 {
     public partial class StudentAttendance : Form
     {
+        /// <summary>
+        /// Con is variable used for the connection of database with this project.
+        /// </summary>
         SqlConnection con = new SqlConnection(@"Data Source = FARAZ; Initial Catalog = ProjectB; Integrated Security = True");
        // private int Id = 0;
         public StudentAttendance()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// on the load of form this function fill the data in combo box .
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void StudentAttendance_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'projectBDataSet7.Student' table. You can move, or remove it, as needed.
@@ -27,7 +34,9 @@ namespace LabManagementProject
             ComboBoxFill();
 
         }
-
+        /// <summary>
+        /// this function fills the status combo box with the attendance status.
+        /// </summary>
         public void ComboBoxFill()
         {
             con.Open();
@@ -42,7 +51,11 @@ namespace LabManagementProject
             cmbstatus.DataSource = dt;
             con.Close();
         }
-
+        /// <summary>
+        /// this is used to mark the attendance and save all the record to database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnmarkattendance_Click(object sender, EventArgs e)
         {
             try
@@ -72,12 +85,16 @@ namespace LabManagementProject
             catch (Exception ex)
             {
                 con.Close();
-                MessageBox.Show("You have already marked attendance for this student");
+                MessageBox.Show(ex.Message +"You have already marked attendance for this student");
             }
 
             
         }
-
+        /// <summary>
+        /// this function converts the status string to int value which is stored to database.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
         public int StatusValue(string s)
         {
             if (cmbstatus.Text == "Present")
@@ -120,14 +137,22 @@ namespace LabManagementProject
             }
 
         }
-
+        /// <summary>
+        /// link label is used to navigate to home page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lblbacktohome_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Home h = new Home();
             h.Show();
             this.Hide();
         }
-
+        /// <summary>
+        /// link label is used to navigate to manage assessment page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lblassessment_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ManageAssessments m = new ManageAssessments();
